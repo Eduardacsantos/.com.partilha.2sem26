@@ -154,7 +154,9 @@ let items=[
   {nome:"Cesta de frutas", categoria:"Frutas e verduras", qtd:1, validade:addDays(3), local:"Mercado Central — das 8h às 11h", solicitado:false},
   {nome:"Leite integral 1L (x6)", categoria:"Laticínios", qtd:6, validade:addDays(7), local:"Padaria Bom Pão — das 7h às 20h", solicitado:false}
 ];
-function addDays(n){const d=new Date(); d.setDate(d.getDate()+n); return d.toISOString().split('T')[0];}
+// data local em AAAA-MM-DD (toISOString usaria UTC e adiantaria um dia à noite no Brasil)
+function toISODate(d){return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;}
+function addDays(n){const d=new Date(); d.setDate(d.getDate()+n); return toISODate(d);}
 function fmtDate(iso){const [y,m,d]=iso.split('-'); return `${d}/${m}/${y}`;}
 
 const itemList=document.getElementById('itemList');
@@ -166,29 +168,27 @@ rBusca.oninput=renderItems; rCat.onchange=renderItems;
 function renderItems(){
   const termo=rBusca.value.trim().toLowerCase();
   const cat=rCat.value;
-  const filtrados=items.filter(it=> it.nome.toLowerCase().includes(termo) && (cat==='' || it.categoria===cat));
+  const hoje=toISODate(new Date());
+  // itens vencidos saem da lista
+  const filtrados=items.filter(it=> it.validade>=hoje && it.nome.toLowerCase().includes(termo) && (cat==='' || it.categoria===cat));
   itemList.innerHTML='';
   itemListEmpty.style.display = filtrados.length ? 'none' : 'block';
-  filtrados.forEach((it, idx)=>{
-    const realIdx=items.indexOf(it);
+  filtrados.forEach(it=>{
+    // textContent em vez de innerHTML: o que o doador digita nunca vira HTML
     const card=document.createElement('div'); card.className='item-card';
-    card.innerHTML=`
-      <div class="info">
-        <h4>${it.nome}</h4>
-        <p>${it.local}</p>
-        <div class="meta">
-          <span>${it.categoria}</span>
-          <span>Qtd: ${it.qtd}</span>
-          <span>Validade: ${fmtDate(it.validade)}</span>
-        </div>
-      </div>
-      <button ${it.solicitado?'disabled':''} data-idx="${realIdx}">${it.solicitado?'✅ Solicitado':'Solicitar'}</button>
-    `;
-    card.querySelector('button').onclick=(e)=>{
-      const i=Number(e.target.dataset.idx);
-      items[i].solicitado=true;
-      renderItems();
-    };
+    const info=document.createElement('div'); info.className='info';
+    const titulo=document.createElement('h4'); titulo.textContent=it.nome;
+    const local=document.createElement('p'); local.textContent=it.local;
+    const meta=document.createElement('div'); meta.className='meta';
+    [it.categoria, 'Qtd: '+it.qtd, 'Validade: '+fmtDate(it.validade)].forEach(txt=>{
+      const s=document.createElement('span'); s.textContent=txt; meta.appendChild(s);
+    });
+    info.append(titulo, local, meta);
+    const btn=document.createElement('button');
+    btn.disabled=it.solicitado;
+    btn.textContent=it.solicitado?'✅ Solicitado':'Solicitar';
+    btn.onclick=()=>{ it.solicitado=true; renderItems(); };
+    card.append(info, btn);
     itemList.appendChild(card);
   });
 }
@@ -197,11 +197,14 @@ function renderItems(){
 const donateForm=document.getElementById('donateForm');
 donateForm.addEventListener('submit', function(e){
   e.preventDefault();
-  let ok=true;
+  let ok=true, primeiroInvalido=null;
   function setErr(id, errId, cond){
     const field=document.getElementById(id), err=document.getElementById(errId);
-    if(cond){ field.classList.add('invalid'); err.classList.add('show'); ok=false; }
-    else{ field.classList.remove('invalid'); err.classList.remove('show'); }
+    if(cond){
+      field.classList.add('invalid'); field.setAttribute('aria-invalid','true'); err.classList.add('show'); ok=false;
+      if(!primeiroInvalido) primeiroInvalido=field;
+    }
+    else{ field.classList.remove('invalid'); field.removeAttribute('aria-invalid'); err.classList.remove('show'); }
   }
   const nome=document.getElementById('d_nome').value.trim();
   const cat=document.getElementById('d_categoria').value;
@@ -212,7 +215,7 @@ donateForm.addEventListener('submit', function(e){
 
   setErr('d_nome','err_nome', nome==='');
   setErr('d_categoria','err_categoria', cat==='');
-  setErr('d_qtd','err_qtd', qtd==='' || isNaN(qtd) || Number(qtd)<=0);
+  setErr('d_qtd','err_qtd', qtd==='' || !Number.isInteger(Number(qtd)) || Number(qtd)<=0);
   const today=new Date(); today.setHours(0,0,0,0);
   setErr('d_validade','err_validade', val==='' || new Date(val+'T00:00:00')<today);
   setErr('d_valor','err_valor', valor==='' || isNaN(valor) || Number(valor)<0);
@@ -226,6 +229,7 @@ donateForm.addEventListener('submit', function(e){
     setTimeout(()=>banner.classList.remove('show'), 4000);
   } else {
     banner.classList.remove('show');
+    primeiroInvalido.focus();
   }
 });
 
