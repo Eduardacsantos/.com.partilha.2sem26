@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="ComPartilha: doação de alimentos e conteúdo prático de consumo consciente, em um portal leve e acessível para todos os públicos.">
+<meta name="color-scheme" content="light dark">
+<title>ComPartilha | O que sobra aqui pode fazer falta ali</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Petrona:wght@600;700&family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a href="#mainContent" class="skip-link">Pular para o conteúdo</a>
+
+<header>
+  <div class="topbar">
+    <div class="brand">🍽️ ComPartilha</div>
+    <div class="controls" role="group" aria-label="Preferências de exibição">
+      <div class="fontsize-controls" role="group" aria-label="Tamanho do texto">
+        <button id="fontDown" aria-label="Diminuir tamanho do texto">A-</button>
+        <button id="fontReset" aria-label="Tamanho padrão do texto">A</button>
+        <button id="fontUp" aria-label="Aumentar tamanho do texto">A+</button>
+      </div>
+      <button class="theme-btn" id="themeToggle">🌙 Escuro</button>
+    </div>
+  </div>
+  <nav id="nav" aria-label="Navegação principal"></nav>
+</header>
+
+<main id="mainContent" tabindex="-1">
+
+<section id="inicio">
+  <div class="hero">
+    <h1>ComPartilha</h1>
+    <p class="slogan">O que sobra aqui pode fazer falta ali.</p>
+  </div>
+  <div class="card">
+    <p>Todo dia sobra comida em algum lugar — e falta em outro. O ComPartilha nasceu para encurtar essa distância: uma plataforma simples para doar alimentos antes que se percam, encontrar doações por perto e aprender, no dia a dia, a consumir com mais consciência — na cozinha, no guarda-roupa, em casa e no orçamento.</p>
+  </div>
+  <h2 style="font-size:1.05rem">Explore por tema</h2>
+  <div class="shortcuts" id="shortcuts"></div>
+</section>
+
+<section id="doacao">
+  <span class="tag">Doação</span>
+  <h2>Sobra Zero — doação de alimentos</h2>
+  <div class="card"><p>Cerca de um terço de todo alimento produzido no mundo é desperdiçado. Planejar compras, aproveitar integralmente os alimentos e doar excedentes antes do vencimento são atitudes simples com grande impacto.</p></div>
+
+  <div class="card">
+    <div class="tabswitch" id="foodTabs" role="group" aria-label="Alternar entre doador e receptor">
+      <button data-tab="doador" class="tabbtn active" aria-pressed="true">Doador</button>
+      <button data-tab="receber" class="tabbtn" aria-pressed="false">Receba a doação</button>
+    </div>
+  </div>
+
+  <div class="card" id="painelDoador">
+    <p style="color:var(--muted);font-size:.9rem">Cadastre um item para doação. Todos os campos têm validação real.</p>
+    <form class="donate" id="donateForm" novalidate>
+      <div class="field">
+        <label for="d_nome">Nome do item</label>
+        <input type="text" id="d_nome" placeholder="Ex: Arroz 5kg">
+        <div class="err" id="err_nome" role="alert">Informe o nome do item.</div>
+      </div>
+      <div class="row2">
+        <div class="field">
+          <label for="d_categoria">Categoria</label>
+          <select id="d_categoria">
+            <option value="">Selecione...</option>
+            <option>Grãos e cereais</option>
+            <option>Frutas e verduras</option>
+            <option>Enlatados</option>
+            <option>Laticínios</option>
+            <option>Padaria</option>
+            <option>Outros</option>
+          </select>
+          <div class="err" id="err_categoria" role="alert">Selecione uma categoria.</div>
+        </div>
+        <div class="field">
+          <label for="d_qtd">Quantidade</label>
+          <input type="number" id="d_qtd" placeholder="Ex: 3">
+          <div class="err" id="err_qtd" role="alert">Informe um número maior que zero.</div>
+        </div>
+      </div>
+      <div class="row2">
+        <div class="field">
+          <label for="d_validade">Validade</label>
+          <input type="date" id="d_validade">
+          <div class="err" id="err_validade" role="alert">A data não pode estar no passado.</div>
+        </div>
+        <div class="field">
+          <label for="d_valor">Valor estimado (R$)</label>
+          <input type="number" id="d_valor" placeholder="Ex: 25">
+          <div class="err" id="err_valor" role="alert">Informe um valor válido (≥ 0).</div>
+        </div>
+      </div>
+      <div class="field">
+        <label for="d_local">Local e horário de retirada</label>
+        <input type="text" id="d_local" placeholder="Ex: Rua X, 123 — das 14h às 18h">
+        <div class="err" id="err_local" role="alert">Informe local e horário.</div>
+      </div>
+      <button type="submit" class="btn">Cadastrar doação</button>
+      <div class="banner-success" id="donateSuccess" role="status" aria-live="polite">✅ Item cadastrado com sucesso! Obrigado por doar.</div>
+    </form>
+  </div>
+
+  <div class="card" id="painelReceptor" style="display:none">
+    <p style="color:var(--muted);font-size:.9rem">Veja os itens disponíveis para doação perto de você e solicite o que precisar.</p>
+    <div class="row2" style="margin-bottom:14px">
+      <div class="field" style="margin:0">
+        <label for="r_busca" class="visually-hidden">Buscar item</label>
+        <input type="text" id="r_busca" placeholder="Buscar por nome do item...">
+      </div>
+      <div class="field" style="margin:0">
+        <label for="r_filtroCategoria" class="visually-hidden">Filtrar por categoria</label>
+        <select id="r_filtroCategoria">
+          <option value="">Todas as categorias</option>
+          <option>Grãos e cereais</option>
+          <option>Frutas e verduras</option>
+          <option>Enlatados</option>
+          <option>Laticínios</option>
+          <option>Padaria</option>
+          <option>Outros</option>
+        </select>
+      </div>
+    </div>
+    <div id="itemList" aria-live="polite"></div>
+    <p id="itemListEmpty" style="display:none;color:var(--muted);font-size:.9rem;text-align:center;padding:16px 0">Nenhum item encontrado com esse filtro.</p>
+  </div>
+</section>
+
+<section id="consumo">
+  <span class="tag">Consumo</span>
+  <h2>O que é consumo consciente?</h2>
+  <div class="card">
+    <p>Consumo consciente é comprar pensando no impacto social, ambiental e financeiro de cada escolha — não parar de consumir, mas consumir com propósito. Já consumismo é a compra por impulso, status ou hábito, sem necessidade real por trás.</p>
+  </div>
+  <div class="card">
+    <h3>Necessidade ou desejo?</h3>
+    <p style="color:var(--muted);font-size:.9rem">Para cada item, diga se é mais necessidade ou desejo:</p>
+    <div id="quizConsumo"></div>
+  </div>
+  <div class="card compare">
+    <div class="col"><h3>Consumismo</h3><ul><li>Compra por impulso</li><li>Busca status</li><li>Descarte rápido</li><li>Ignora o custo real</li></ul></div>
+    <div class="col"><h3>Consumo consciente</h3><ul><li>Compra planejada</li><li>Avalia necessidade</li><li>Prioriza durabilidade</li><li>Considera impacto</li></ul></div>
+  </div>
+</section>
+
+<section id="alimentacao">
+  <span class="tag">Alimentação</span>
+  <h2>Consumo consciente de alimentos</h2>
+  <div class="card">
+    <p>Reduzir o desperdício começa antes mesmo da comida sobrar: planejamento de compras, aproveitamento integral dos alimentos e armazenamento correto evitam que tanta coisa boa vá para o lixo.</p>
+    <p style="margin-bottom:0">Tem algo sobrando em casa? <button class="linklike" data-goto="doacao">Doe na aba Doação →</button></p>
+  </div>
+  <div class="card checklist">
+    <h3>Reduza o desperdício em casa</h3>
+    <label><input type="checkbox">Planejo as compras da semana antes de ir ao mercado</label>
+    <label><input type="checkbox">Aproveito talos, cascas e sobras nas refeições</label>
+    <label><input type="checkbox">Guardo os alimentos da forma correta para durarem mais</label>
+    <label><input type="checkbox">Congelo o que não vou consumir a tempo</label>
+    <label><input type="checkbox">Doo o excedente antes do vencimento</label>
+    <div class="progress"><div class="progress-fill" id="fillAlimentacao"></div></div>
+  </div>
+</section>
+
+<section id="casa">
+  <span class="tag">Casa</span>
+  <h2>Água e energia</h2>
+  <div class="card"><p>Pequenos hábitos em casa — banhos mais curtos, desligar aparelhos em stand-by, reaproveitar água — reduzem consumo e conta ao mesmo tempo.</p></div>
+  <div class="card">
+    <h3>Desafio de 7 dias</h3>
+    <p style="color:var(--muted);font-size:.9rem">Marque os dias em que você reduziu conscientemente o consumo de água ou energia:</p>
+    <div class="shortcuts" id="challenge7"></div>
+  </div>
+</section>
+
+<section id="reutilizacao">
+  <span class="tag">Reutilização</span>
+  <h2>Os 3 Rs</h2>
+  <div class="card">
+    <div class="grid3">
+      <div><h4>Reduzir</h4><p>Comprar menos, com mais critério.</p></div>
+      <div><h4>Reutilizar</h4><p>Dar nova vida a um item antes de descartar.</p></div>
+      <div><h4>Reciclar</h4><p>Separar e destinar corretamente o que não serve mais.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="compras">
+  <span class="tag">Compras</span>
+  <h2>Compras sustentáveis</h2>
+  <div class="card"><p>Nem sempre o produto mais barato é o mais econômico no longo prazo. Comparar durabilidade e origem ajuda a decidir melhor.</p></div>
+  <div class="card compare">
+    <div class="col"><h3>Produto A</h3><ul><li>Preço menor</li><li>Vida útil curta</li><li>Sem info de origem</li></ul></div>
+    <div class="col"><h3>Produto B</h3><ul><li>Preço maior</li><li>Vida útil longa</li><li>Produção rastreável</li></ul></div>
+  </div>
+</section>
+
+<section id="economia">
+  <span class="tag">Economia</span>
+  <h2>Consumo consciente e economia</h2>
+  <div class="card"><p>Consumir menos por impulso também é uma forma direta de economizar e ter mais controle financeiro.</p></div>
+  <div class="card checklist">
+    <h3>Antes de comprar</h3>
+    <label><input type="checkbox">Está no orçamento do mês?</label>
+    <label><input type="checkbox">Não é uma compra por impulso?</label>
+    <label><input type="checkbox">Pesquisei o preço em outro lugar?</label>
+    <label><input type="checkbox">Vou usar com frequência?</label>
+    <div class="progress"><div class="progress-fill" id="fillEconomia"></div></div>
+  </div>
+</section>
+
+<section id="habitos">
+  <span class="tag">Hábitos</span>
+  <h2>10 hábitos de consumo consciente</h2>
+  <div class="card" id="habitList"></div>
+  <div class="encourage" id="habitEncourage" role="status" aria-live="polite"></div>
+</section>
+
+<section id="historia">
+  <span class="tag">Sobre nós</span>
+  <h2>Nossa história</h2>
+  <div class="card">
+    <p>O ComPartilha começou de uma constatação incômoda: em qualquer bairro, no mesmo dia, existe comida boa sendo jogada fora e gente com fome ali perto. Não faltava comida — faltava um jeito simples de conectar as duas pontas. Foi daí que surgiu a ideia de um espaço onde doar o que sobra fosse tão fácil quanto pedir o que falta.</p>
+  </div>
+  <div class="card">
+    <p>Hoje o ComPartilha é um protótipo — pequeno, mas com um propósito claro: mostrar que reduzir o desperdício não depende de grandes estruturas, e sim de gente disposta a olhar para o que tem em casa e perguntar "isso pode ajudar alguém?". Por isso, além da doação, o portal também reúne conteúdo prático sobre consumo consciente: porque reduzir o desperdício começa muito antes de a comida sobrar.</p>
+  </div>
+  <div class="card">
+    <h3>O que nos move</h3>
+    <div class="grid3">
+      <div><h4>🌱 Consciência</h4><p>Acreditamos que consumir com mais atenção começa por enxergar o que já temos disponível.</p></div>
+      <div><h4>🤝 Comunidade</h4><p>Aproximamos quem doa de quem precisa, sem burocracia, direto no bairro.</p></div>
+      <div><h4>♻️ Combate ao desperdício</h4><p>Cada doação é um alimento a menos indo para o lixo antes da hora.</p></div>
+    </div>
+  </div>
+  <div class="card">
+    <h3>Um portal também sustentável na forma</h3>
+    <p>Sustentabilidade não é só o assunto do site — é também como ele é construído. O ComPartilha não usa frameworks pesados, imagens grandes nem scripts de rastreamento: é HTML, CSS e JavaScript puros, com poucas requisições e pouco dado trafegado. O tema escuro reduz o consumo de energia em telas OLED, e os controles de tamanho de texto, navegação por teclado e leitura por leitor de tela existem para que o conteúdo chegue a mais gente — porque um site sustentável também é um site acessível a todos os públicos.</p>
+  </div>
+</section>
+
+</main>
+<footer>ComPartilha — protótipo funcional para projeto acadêmico. Feito para ser leve e acessível a todos os públicos.</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
