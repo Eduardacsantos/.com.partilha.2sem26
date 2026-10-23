@@ -8,9 +8,19 @@ const nav = document.getElementById('nav');
 sections.forEach(id=>{
   const b=document.createElement('button');
   b.textContent=labels[id]; b.dataset.target=id;
-  b.onclick=()=>show(id);
+  b.onclick=()=>go(id);
   nav.appendChild(b);
 });
+// cada aba tem seu endereço (#/doacao, #/consumo...): recarregar mantém a aba e voltar/avançar funcionam.
+// a "/" evita que o navegador role até a seção de mesmo id, que ficaria sob o cabeçalho fixo
+function go(id){
+  if(tabFromHash()===id) show(id); else location.hash='/'+id;
+}
+function tabFromHash(){
+  const id=decodeURIComponent(location.hash.replace(/^#\/?/,''));
+  return sections.includes(id) ? id : null; // ignora #mainContent do "Pular para o conteúdo"
+}
+window.addEventListener('hashchange', ()=>{ const id=tabFromHash(); if(id) show(id); });
 function show(id){
   sections.forEach(s=>document.getElementById(s).classList.toggle('active', s===id));
   [...nav.children].forEach(b=>{
@@ -21,11 +31,11 @@ function show(id){
   document.getElementById('mainContent').focus({preventScroll:true});
   window.scrollTo({top:0,behavior:'smooth'});
 }
-show('inicio');
+show(tabFromHash() || 'inicio');
 
 // links internos estilo texto (ex: "Doe na aba Doação")
 document.querySelectorAll('[data-goto]').forEach(el=>{
-  el.addEventListener('click', ()=> show(el.dataset.goto));
+  el.addEventListener('click', ()=> go(el.dataset.goto));
 });
 
 // shortcuts on home
@@ -33,7 +43,7 @@ const shortcuts = document.getElementById('shortcuts');
 sections.filter(s=>s!=='inicio').forEach(id=>{
   const b=document.createElement('button');
   b.textContent=labels[id];
-  b.onclick=()=>show(id);
+  b.onclick=()=>go(id);
   shortcuts.appendChild(b);
 });
 
