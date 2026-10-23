@@ -10,6 +10,10 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Petrona:wght@600;700&family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+<script>
+  // aplica o tema antes de pintar a página, evitando o flash claro no tema escuro
+  try{ document.documentElement.setAttribute('data-theme', localStorage.getItem('compartilha-theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light')); }catch(e){}
+</script>
 </head>
 <body>
 <a href="#mainContent" class="skip-link">Pular para o conteúdo</a>
