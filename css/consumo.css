@@ -1,0 +1,9 @@
+/* Página Consumo (consumo.html): quiz necessidade ou desejo */
+.quiz-item{margin-top:12px}
+.quiz-item strong{font-size:.9rem}
+.quiz-opt{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.quiz-opt button{border:1px solid var(--border);background:var(--surface);padding:8px 14px;border-radius:8px;cursor:pointer;color:var(--text);font-family:inherit;transition:border-color .15s}
+.quiz-opt button:hover{border-color:var(--green-text)}
+.quiz-opt button.picked{background:var(--green);color:#fff;border-color:var(--green)}
+.feedback{margin-top:10px;font-size:.9rem;padding:10px;border-radius:8px;background:var(--green-light);color:var(--on-green-light);display:none}
+.feedback.show{display:block}

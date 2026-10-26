@@ -1,0 +1,9 @@
+/* Página Hábitos (habitos.html) */
+.habit-item{display:flex;gap:10px;align-items:center;padding:9px 8px;border-bottom:1px dashed var(--border);border-radius:8px;transition:background-color .15s}
+.habit-item:last-child{border-bottom:none}
+.habit-item:hover{background:var(--surface-2)}
+.habit-item button{margin-left:auto;border:1px solid var(--green-text);background:transparent;color:var(--green-text);padding:5px 12px;border-radius:8px;cursor:pointer;font-size:.8rem;font-family:inherit;transition:background-color .15s,color .15s}
+.habit-item button:hover{background:var(--green-text);color:var(--surface)}
+.habit-item.selected{background:var(--green-light)}
+.encourage{display:none;margin-top:14px;background:var(--green-light);color:var(--on-green-light);padding:12px;border-radius:10px}
+.encourage.show{display:block}

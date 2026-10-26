@@ -1,0 +1,8 @@
+/* Página Aprenda (aprenda.html) */
+.topic-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px;margin-top:22px}
+.topic-card{position:relative;text-decoration:none;display:flex;flex-direction:column;align-items:flex-start;gap:4px;text-align:left;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:20px;cursor:pointer;color:var(--text);font:inherit;box-shadow:var(--shadow-sm);transition:transform .18s,box-shadow .18s,border-color .18s}
+.topic-card:hover{transform:translateY(-3px);box-shadow:var(--shadow);border-color:var(--green-text)}
+.topic-title{font-family:'Petrona',serif;font-weight:700;font-size:1.15rem}
+.topic-desc{color:var(--muted);font-size:.88rem}
+.topic-arrow{position:absolute;top:22px;right:20px;color:var(--muted);transition:transform .18s,color .18s}
+.topic-card:hover .topic-arrow{transform:translateX(3px);color:var(--green-text)}
