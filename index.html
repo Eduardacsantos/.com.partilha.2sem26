@@ -5,62 +5,144 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="description" content="ComPartilha: doação de alimentos e conteúdo prático de consumo consciente, em um portal leve e acessível para todos os públicos.">
 <meta name="color-scheme" content="light dark">
-<title>ComPartilha | O que sobra aqui pode fazer falta ali</title>
+<title>.ComPartilha | O que sobra aqui pode fazer falta ali</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%232f6b3f'/%3E%3Ccircle cx='8' cy='22' r='2.8' fill='%23f2925f'/%3E%3Ctext x='19' y='23.5' font-family='Georgia,serif' font-size='19' font-weight='700' fill='%23fff' text-anchor='middle'%3EC%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Petrona:wght@600;700&family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
-<script>
-  // aplica o tema antes de pintar a página, evitando o flash claro no tema escuro
-  try{ document.documentElement.setAttribute('data-theme', localStorage.getItem('compartilha-theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light')); }catch(e){}
-</script>
+<!-- no <head> para aplicar o tema antes de pintar a página; o resto do script espera o HTML carregar -->
+<script src="script.js"></script>
 </head>
 <body>
+<!-- ícones usados no site (desenhados em SVG: leves e acompanham a cor do texto) -->
+<svg class="sprite" aria-hidden="true" focusable="false">
+  <symbol id="i-heart" viewBox="0 0 24 24"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></symbol>
+  <symbol id="i-box" viewBox="0 0 24 24"><path d="M21 8 12 3 3 8v8l9 5 9-5Z"/><path d="m3 8 9 5 9-5"/><path d="M12 13v8"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></symbol>
+  <symbol id="i-scale" viewBox="0 0 24 24"><path d="M12 3v18"/><path d="M5 7h14"/><path d="m5 7-3 7a3 3 0 0 0 6 0Z"/><path d="m19 7-3 7a3 3 0 0 0 6 0Z"/><path d="M8 21h8"/></symbol>
+  <symbol id="i-utensils" viewBox="0 0 24 24"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"/></symbol>
+  <symbol id="i-droplet" viewBox="0 0 24 24"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7Z"/></symbol>
+  <symbol id="i-recycle" viewBox="0 0 24 24"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M8 16H3v5"/></symbol>
+  <symbol id="i-bag" viewBox="0 0 24 24"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></symbol>
+  <symbol id="i-wallet" viewBox="0 0 24 24"><path d="M19 7V4a1 1 0 0 0-1-1H5a2 2 0 0 0 0 4h15a1 1 0 0 1 1 1v4h-3a2 2 0 0 0 0 4h3a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1"/><path d="M3 5v14a2 2 0 0 0 2 2h15a1 1 0 0 0 1-1v-4"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M21.8 10A10 10 0 1 1 17 3.3"/><path d="m9 11 3 3L22 4"/></symbol>
+  <symbol id="i-leaf" viewBox="0 0 24 24"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></symbol>
+  <symbol id="i-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+  <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></symbol>
+  <symbol id="i-arrow-left" viewBox="0 0 24 24"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></symbol>
+  <symbol id="i-moon" viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></symbol>
+  <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></symbol>
+</svg>
+
 <a href="#mainContent" class="skip-link">Pular para o conteúdo</a>
 
 <header>
   <div class="topbar">
-    <div class="brand">🍽️ ComPartilha</div>
+    <a href="#/inicio" class="brand" aria-label="ComPartilha, página inicial"><span class="dot-com">.Com</span>Partilha</a>
+    <nav id="nav" aria-label="Navegação principal"></nav>
     <div class="controls" role="group" aria-label="Preferências de exibição">
       <div class="fontsize-controls" role="group" aria-label="Tamanho do texto">
         <button id="fontDown" aria-label="Diminuir tamanho do texto">A-</button>
         <button id="fontReset" aria-label="Tamanho padrão do texto">A</button>
         <button id="fontUp" aria-label="Aumentar tamanho do texto">A+</button>
       </div>
-      <button class="theme-btn" id="themeToggle">🌙 Escuro</button>
+      <button class="theme-btn" id="themeToggle">Escuro</button>
     </div>
   </div>
-  <nav id="nav" aria-label="Navegação principal"></nav>
 </header>
 
 <main id="mainContent" tabindex="-1">
 
-<section id="inicio">
+<section id="inicio" class="wide">
   <div class="hero">
-    <h1>ComPartilha</h1>
-    <p class="slogan">O que sobra aqui pode fazer falta ali.</p>
-  </div>
-  <div class="card">
-    <p>Todo dia sobra comida em algum lugar — e falta em outro. O ComPartilha nasceu para encurtar essa distância: uma plataforma simples para doar alimentos antes que se percam, encontrar doações por perto e aprender, no dia a dia, a consumir com mais consciência — na cozinha, no guarda-roupa, em casa e no orçamento.</p>
-  </div>
-  <h2 style="font-size:1.05rem">Explore por tema</h2>
-  <div class="shortcuts" id="shortcuts"></div>
-</section>
+    <div class="hero-text">
+      <span class="eyebrow">Doação de alimentos · Consumo consciente</span>
+      <h1><span class="dot-com">.Com</span>Partilha</h1>
+      <p class="slogan">O que sobra aqui pode fazer falta ali.</p>
+      <p class="lead">Todo dia sobra comida em algum lugar — e falta em outro. O ComPartilha nasceu para encurtar essa distância: uma plataforma simples para doar alimentos antes que se percam, encontrar doações por perto e aprender, no dia a dia, a consumir com mais consciência — na cozinha, no guarda-roupa, em casa e no orçamento.</p>
+      <div class="cta-row">
+        <button class="btn btn-accent" data-goto="doacao" data-tab="doador"><svg class="icon" aria-hidden="true"><use href="#i-heart"/></svg>Quero doar</button>
+        <button class="btn btn-outline" data-goto="doacao" data-tab="receber"><svg class="icon" aria-hidden="true"><use href="#i-search"/></svg>Preciso de alimentos</button>
+      </div>
+    </div>
 
-<section id="doacao">
-  <span class="tag">Doação</span>
-  <h2>Sobra Zero — doação de alimentos</h2>
-  <div class="card"><p>Cerca de um terço de todo alimento produzido no mundo é desperdiçado. Planejar compras, aproveitar integralmente os alimentos e doar excedentes antes do vencimento são atitudes simples com grande impacto.</p></div>
-
-  <div class="card">
-    <div class="tabswitch" id="foodTabs" role="group" aria-label="Alternar entre doador e receptor">
-      <button data-tab="doador" class="tabbtn active" aria-pressed="true">Doador</button>
-      <button data-tab="receber" class="tabbtn" aria-pressed="false">Receba a doação</button>
+    <!-- vitrine decorativa: mostra como é uma doação no site -->
+    <div class="hero-preview" aria-hidden="true">
+      <div class="preview-card">
+        <div class="info">
+          <h4>Cesta de frutas</h4>
+          <p>Mercado Central — das 8h às 11h</p>
+          <div class="meta"><span>Frutas e verduras</span><span>Qtd: 1</span></div>
+        </div>
+        <span class="preview-btn">Solicitar</span>
+      </div>
+      <div class="preview-card">
+        <div class="info">
+          <h4>Arroz 5kg</h4>
+          <p>Galeria Pagé — das 10h às 18h</p>
+          <div class="meta"><span>Grãos e cereais</span><span>Qtd: 2</span></div>
+        </div>
+        <span class="preview-btn">Solicitar</span>
+      </div>
+      <span class="preview-badge"><svg class="icon"><use href="#i-check"/></svg>Doação solicitada</span>
     </div>
   </div>
 
+  <h2 class="visually-hidden">Agora no ComPartilha</h2>
+  <div class="stats">
+    <div class="stat"><span class="stat-value" id="statItens">0</span><span class="stat-label">itens disponíveis para retirada</span></div>
+    <div class="stat"><span class="stat-value" id="statUnidades">0</span><span class="stat-label">unidades esperando um destino</span></div>
+    <div class="stat"><span class="stat-value" id="statValor">R$ 0</span><span class="stat-label">em alimentos salvos do lixo</span></div>
+  </div>
+
+  <div class="section-head">
+    <span class="tag">Como funciona</span>
+    <h2>Doar é simples assim</h2>
+  </div>
+  <ol class="steps">
+    <li class="step">
+      <span class="step-icon"><svg class="icon" aria-hidden="true"><use href="#i-box"/></svg></span>
+      <h3>Cadastre o que sobrou</h3>
+      <p>Informe o alimento, a quantidade, a validade e onde retirar.</p>
+    </li>
+    <li class="step">
+      <span class="step-icon"><svg class="icon" aria-hidden="true"><use href="#i-pin"/></svg></span>
+      <h3>Alguém por perto encontra</h3>
+      <p>Quem precisa busca por nome ou categoria e solicita o item.</p>
+    </li>
+    <li class="step">
+      <span class="step-icon"><svg class="icon" aria-hidden="true"><use href="#i-clock"/></svg></span>
+      <h3>Retirada no horário</h3>
+      <p>O alimento chega a quem precisa antes de se perder.</p>
+    </li>
+  </ol>
+
+  <div class="cta-card">
+    <div>
+      <h3>Doar começa antes da sobra</h3>
+      <p>Sete temas práticos para consumir melhor na cozinha, em casa e no orçamento.</p>
+    </div>
+    <button class="btn btn-light" data-goto="aprenda">Explorar os temas<svg class="icon icon-end" aria-hidden="true"><use href="#i-arrow-right"/></svg></button>
+  </div>
+</section>
+
+<section id="doacao">
+  <div class="section-head">
+    <span class="tag">Doação</span>
+    <h2>Sobra Zero — doação de alimentos</h2>
+  </div>
+  <div class="card"><p>Cerca de um terço de todo alimento produzido no mundo é desperdiçado. Planejar compras, aproveitar integralmente os alimentos e doar excedentes antes do vencimento são atitudes simples com grande impacto.</p></div>
+
+  <div class="tabswitch" id="foodTabs" role="group" aria-label="Alternar entre doador e receptor">
+    <button data-tab="doador" class="tabbtn active" aria-pressed="true"><svg class="icon" aria-hidden="true"><use href="#i-heart"/></svg>Doador</button>
+    <button data-tab="receber" class="tabbtn" aria-pressed="false"><svg class="icon" aria-hidden="true"><use href="#i-search"/></svg>Receba a doação</button>
+  </div>
+
   <div class="card" id="painelDoador">
-    <p style="color:var(--muted);font-size:.9rem">Cadastre um item para doação. Todos os campos têm validação real.</p>
+    <p class="note">Cadastre um item para doação. Todos os campos têm validação real.</p>
     <form class="donate" id="donateForm" novalidate>
       <div class="field">
         <label for="d_nome">Nome do item</label>
@@ -104,19 +186,19 @@
         <input type="text" id="d_local" placeholder="Ex: Rua X, 123 — das 14h às 18h" aria-describedby="err_local">
         <div class="err" id="err_local" role="alert">Informe local e horário.</div>
       </div>
-      <button type="submit" class="btn">Cadastrar doação</button>
+      <button type="submit" class="btn btn-accent">Cadastrar doação</button>
       <div class="banner-success" id="donateSuccess" role="status" aria-live="polite">✅ Item cadastrado com sucesso! Obrigado por doar.</div>
     </form>
   </div>
 
-  <div class="card" id="painelReceptor" style="display:none">
-    <p style="color:var(--muted);font-size:.9rem">Veja os itens disponíveis para doação perto de você e solicite o que precisar.</p>
-    <div class="row2" style="margin-bottom:14px">
-      <div class="field" style="margin:0">
+  <div class="card" id="painelReceptor" hidden>
+    <p class="note">Veja os itens disponíveis para doação perto de você e solicite o que precisar.</p>
+    <div class="row2 search-row">
+      <div class="field">
         <label for="r_busca" class="visually-hidden">Buscar item</label>
         <input type="text" id="r_busca" placeholder="Buscar por nome do item...">
       </div>
-      <div class="field" style="margin:0">
+      <div class="field">
         <label for="r_filtroCategoria" class="visually-hidden">Filtrar por categoria</label>
         <select id="r_filtroCategoria">
           <option value="">Todas as categorias</option>
@@ -130,19 +212,73 @@
       </div>
     </div>
     <div id="itemList" aria-live="polite"></div>
-    <p id="itemListEmpty" style="display:none;color:var(--muted);font-size:.9rem;text-align:center;padding:16px 0">Nenhum item encontrado com esse filtro.</p>
+    <p id="itemListEmpty" class="empty-state" hidden>Nenhum item encontrado com esse filtro.</p>
+  </div>
+</section>
+
+<section id="aprenda" class="wide">
+  <div class="section-head">
+    <span class="tag">Aprenda</span>
+    <h2>Consumo consciente no dia a dia</h2>
+    <p class="lead">Reduzir o desperdício não começa só na hora de doar: começa nas escolhas do dia a dia. Escolha um tema para começar.</p>
+  </div>
+  <div class="topic-grid">
+    <button class="topic-card" data-goto="consumo">
+      <span class="topic-icon"><svg class="icon" aria-hidden="true"><use href="#i-scale"/></svg></span>
+      <span class="topic-title">Consumo</span>
+      <span class="topic-desc">Necessidade ou desejo? Entenda a diferença com um quiz rápido.</span>
+      <svg class="icon topic-arrow" aria-hidden="true"><use href="#i-arrow-right"/></svg>
+    </button>
+    <button class="topic-card" data-goto="alimentacao">
+      <span class="topic-icon"><svg class="icon" aria-hidden="true"><use href="#i-utensils"/></svg></span>
+      <span class="topic-title">Alimentação</span>
+      <span class="topic-desc">Planeje, aproveite e guarde melhor para não jogar comida fora.</span>
+      <svg class="icon topic-arrow" aria-hidden="true"><use href="#i-arrow-right"/></svg>
+    </button>
+    <button class="topic-card" data-goto="casa">
+      <span class="topic-icon"><svg class="icon" aria-hidden="true"><use href="#i-droplet"/></svg></span>
+      <span class="topic-title">Casa</span>
+      <span class="topic-desc">Água e energia, com um desafio de 7 dias.</span>
+      <svg class="icon topic-arrow" aria-hidden="true"><use href="#i-arrow-right"/></svg>
+    </button>
+    <button class="topic-card" data-goto="reutilizacao">
+      <span class="topic-icon"><svg class="icon" aria-hidden="true"><use href="#i-recycle"/></svg></span>
+      <span class="topic-title">Reutilização</span>
+      <span class="topic-desc">Os 3 Rs: reduzir, reutilizar e reciclar.</span>
+      <svg class="icon topic-arrow" aria-hidden="true"><use href="#i-arrow-right"/></svg>
+    </button>
+    <button class="topic-card" data-goto="compras">
+      <span class="topic-icon"><svg class="icon" aria-hidden="true"><use href="#i-bag"/></svg></span>
+      <span class="topic-title">Compras</span>
+      <span class="topic-desc">Durabilidade e origem na hora de escolher um produto.</span>
+      <svg class="icon topic-arrow" aria-hidden="true"><use href="#i-arrow-right"/></svg>
+    </button>
+    <button class="topic-card" data-goto="economia">
+      <span class="topic-icon"><svg class="icon" aria-hidden="true"><use href="#i-wallet"/></svg></span>
+      <span class="topic-title">Economia</span>
+      <span class="topic-desc">Um checklist rápido antes de comprar.</span>
+      <svg class="icon topic-arrow" aria-hidden="true"><use href="#i-arrow-right"/></svg>
+    </button>
+    <button class="topic-card" data-goto="habitos">
+      <span class="topic-icon"><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg></span>
+      <span class="topic-title">Hábitos</span>
+      <span class="topic-desc">10 hábitos de consumo consciente para começar hoje.</span>
+      <svg class="icon topic-arrow" aria-hidden="true"><use href="#i-arrow-right"/></svg>
+    </button>
   </div>
 </section>
 
 <section id="consumo">
-  <span class="tag">Consumo</span>
-  <h2>O que é consumo consciente?</h2>
+  <div class="section-head">
+    <span class="tag">Consumo</span>
+    <h2>O que é consumo consciente?</h2>
+  </div>
   <div class="card">
     <p>Consumo consciente é comprar pensando no impacto social, ambiental e financeiro de cada escolha — não parar de consumir, mas consumir com propósito. Já consumismo é a compra por impulso, status ou hábito, sem necessidade real por trás.</p>
   </div>
   <div class="card">
     <h3>Necessidade ou desejo?</h3>
-    <p style="color:var(--muted);font-size:.9rem">Para cada item, diga se é mais necessidade ou desejo:</p>
+    <p class="note">Para cada item, diga se é mais necessidade ou desejo:</p>
     <div id="quizConsumo"></div>
   </div>
   <div class="card compare">
@@ -152,11 +288,13 @@
 </section>
 
 <section id="alimentacao">
-  <span class="tag">Alimentação</span>
-  <h2>Consumo consciente de alimentos</h2>
+  <div class="section-head">
+    <span class="tag">Alimentação</span>
+    <h2>Consumo consciente de alimentos</h2>
+  </div>
   <div class="card">
     <p>Reduzir o desperdício começa antes mesmo da comida sobrar: planejamento de compras, aproveitamento integral dos alimentos e armazenamento correto evitam que tanta coisa boa vá para o lixo.</p>
-    <p style="margin-bottom:0">Tem algo sobrando em casa? <button class="linklike" data-goto="doacao">Doe na aba Doação →</button></p>
+    <p>Tem algo sobrando em casa? <button class="linklike" data-goto="doacao" data-tab="doador">Doe na aba Doação →</button></p>
   </div>
   <div class="card checklist">
     <h3>Reduza o desperdício em casa</h3>
@@ -170,19 +308,23 @@
 </section>
 
 <section id="casa">
-  <span class="tag">Casa</span>
-  <h2>Água e energia</h2>
+  <div class="section-head">
+    <span class="tag">Casa</span>
+    <h2>Água e energia</h2>
+  </div>
   <div class="card"><p>Pequenos hábitos em casa — banhos mais curtos, desligar aparelhos em stand-by, reaproveitar água — reduzem consumo e conta ao mesmo tempo.</p></div>
   <div class="card">
     <h3>Desafio de 7 dias</h3>
-    <p style="color:var(--muted);font-size:.9rem">Marque os dias em que você reduziu conscientemente o consumo de água ou energia:</p>
-    <div class="shortcuts" id="challenge7"></div>
+    <p class="note">Marque os dias em que você reduziu conscientemente o consumo de água ou energia:</p>
+    <div class="days" id="challenge7"></div>
   </div>
 </section>
 
 <section id="reutilizacao">
-  <span class="tag">Reutilização</span>
-  <h2>Os 3 Rs</h2>
+  <div class="section-head">
+    <span class="tag">Reutilização</span>
+    <h2>Os 3 Rs</h2>
+  </div>
   <div class="card">
     <div class="grid3">
       <div><h4>Reduzir</h4><p>Comprar menos, com mais critério.</p></div>
@@ -193,8 +335,10 @@
 </section>
 
 <section id="compras">
-  <span class="tag">Compras</span>
-  <h2>Compras sustentáveis</h2>
+  <div class="section-head">
+    <span class="tag">Compras</span>
+    <h2>Compras sustentáveis</h2>
+  </div>
   <div class="card"><p>Nem sempre o produto mais barato é o mais econômico no longo prazo. Comparar durabilidade e origem ajuda a decidir melhor.</p></div>
   <div class="card compare">
     <div class="col"><h3>Produto A</h3><ul><li>Preço menor</li><li>Vida útil curta</li><li>Sem info de origem</li></ul></div>
@@ -203,8 +347,10 @@
 </section>
 
 <section id="economia">
-  <span class="tag">Economia</span>
-  <h2>Consumo consciente e economia</h2>
+  <div class="section-head">
+    <span class="tag">Economia</span>
+    <h2>Consumo consciente e economia</h2>
+  </div>
   <div class="card"><p>Consumir menos por impulso também é uma forma direta de economizar e ter mais controle financeiro.</p></div>
   <div class="card checklist">
     <h3>Antes de comprar</h3>
@@ -217,15 +363,19 @@
 </section>
 
 <section id="habitos">
-  <span class="tag">Hábitos</span>
-  <h2>10 hábitos de consumo consciente</h2>
+  <div class="section-head">
+    <span class="tag">Hábitos</span>
+    <h2>10 hábitos de consumo consciente</h2>
+  </div>
   <div class="card" id="habitList"></div>
   <div class="encourage" id="habitEncourage" role="status" aria-live="polite"></div>
 </section>
 
 <section id="historia">
-  <span class="tag">Sobre nós</span>
-  <h2>Nossa história</h2>
+  <div class="section-head">
+    <span class="tag">Sobre nós</span>
+    <h2>Nossa história</h2>
+  </div>
   <div class="card">
     <p>O ComPartilha começou de uma constatação incômoda: em qualquer bairro, no mesmo dia, existe comida boa sendo jogada fora e gente com fome ali perto. Não faltava comida — faltava um jeito simples de conectar as duas pontas. Foi daí que surgiu a ideia de um espaço onde doar o que sobra fosse tão fácil quanto pedir o que falta.</p>
   </div>
@@ -234,10 +384,10 @@
   </div>
   <div class="card">
     <h3>O que nos move</h3>
-    <div class="grid3">
-      <div><h4>🌱 Consciência</h4><p>Acreditamos que consumir com mais atenção começa por enxergar o que já temos disponível.</p></div>
-      <div><h4>🤝 Comunidade</h4><p>Aproximamos quem doa de quem precisa, sem burocracia, direto no bairro.</p></div>
-      <div><h4>♻️ Combate ao desperdício</h4><p>Cada doação é um alimento a menos indo para o lixo antes da hora.</p></div>
+    <div class="grid3 values">
+      <div><span class="step-icon"><svg class="icon" aria-hidden="true"><use href="#i-leaf"/></svg></span><h4>Consciência</h4><p>Acreditamos que consumir com mais atenção começa por enxergar o que já temos disponível.</p></div>
+      <div><span class="step-icon"><svg class="icon" aria-hidden="true"><use href="#i-users"/></svg></span><h4>Comunidade</h4><p>Aproximamos quem doa de quem precisa, sem burocracia, direto no bairro.</p></div>
+      <div><span class="step-icon"><svg class="icon" aria-hidden="true"><use href="#i-recycle"/></svg></span><h4>Combate ao desperdício</h4><p>Cada doação é um alimento a menos indo para o lixo antes da hora.</p></div>
     </div>
   </div>
   <div class="card">
@@ -247,8 +397,27 @@
 </section>
 
 </main>
-<footer>ComPartilha — protótipo funcional para projeto acadêmico. Feito para ser leve e acessível a todos os públicos.</footer>
 
-<script src="script.js"></script>
+<footer>
+  <div class="footer-inner">
+    <div>
+      <a href="#/inicio" class="brand footer-brand"><span class="dot-com">.Com</span>Partilha</a>
+      <p>O que sobra aqui pode fazer falta ali.</p>
+    </div>
+    <div>
+      <h3>Navegue</h3>
+      <ul class="footer-links">
+        <li><a href="#/doacao">Doar e receber</a></li>
+        <li><a href="#/aprenda">Aprenda</a></li>
+        <li><a href="#/historia">Sobre nós</a></li>
+      </ul>
+    </div>
+    <div>
+      <h3>Projeto acadêmico</h3>
+      <p>Desenvolvido por Beatriz, Eduarda, Henrique, Julia e Vitória.</p>
+      <p>Protótipo funcional, feito para ser leve e acessível a todos os públicos.</p>
+    </div>
+  </div>
+</footer>
 </body>
 </html>
