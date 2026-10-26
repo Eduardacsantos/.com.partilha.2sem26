@@ -1,5 +1,7 @@
 :root{
   --green:#2f6b3f; --green-dark:#1f4a2b; --green-light:#e6f2e8;
+  /* texto verde e texto sobre fundo verde-claro: ganham tons claros no tema escuro */
+  --green-text:#2f6b3f; --on-green-light:#1f4a2b;
   --bg:#fdfcf9; --surface:#ffffff; --text:#1c2420; --muted:#5c655f;
   --border:#dfe3de; --error:#c0392b; --warn:#b9770e;
   --radius:14px;
@@ -9,12 +11,13 @@
 :root[data-theme="dark"]{
   --bg:#161c18; --surface:#1e2620; --text:#eef1ee; --muted:#9aa79d;
   --border:#333d36; --green-light:#20342a;
+  --green-text:#7cc28e; --on-green-light:#a8d5b2;
 }
 *{box-sizing:border-box}
 html{scroll-padding-top:env(safe-area-inset-top,0px)}
 body{margin:0;background:var(--bg);color:var(--text);font-family:'Hanken Grotesk',system-ui,sans-serif;line-height:1.55}
 h1,h2,h3,h4{font-family:'Petrona',serif;color:var(--text);margin:0 0 .4em}
-a{color:var(--green)}
+a{color:var(--green-text)}
 
 /* Acessibilidade: link para pular navegação */
 .skip-link{position:absolute;left:-999px;top:auto;background:var(--green);color:#fff;padding:10px 16px;border-radius:0 0 8px 0;z-index:100;font-weight:600}
@@ -23,7 +26,7 @@ a{color:var(--green)}
 
 /* Foco visível para navegação por teclado */
 a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{
-  outline:3px solid var(--green); outline-offset:2px;
+  outline:3px solid var(--green-text); outline-offset:2px;
 }
 
 /* Respeita preferência do usuário por menos animação */
@@ -33,7 +36,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{
 
 header{position:sticky;top:0;top:env(safe-area-inset-top,0px);background:var(--surface);border-bottom:1px solid var(--border);z-index:10}
 .topbar{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px 18px;max-width:1100px;margin:0 auto;flex-wrap:wrap}
-.brand{display:flex;align-items:center;gap:8px;font-family:'Petrona',serif;font-weight:700;font-size:1.3rem;color:var(--green)}
+.brand{display:flex;align-items:center;gap:8px;font-family:'Petrona',serif;font-weight:700;font-size:1.3rem;color:var(--green-text)}
 .controls{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
 .theme-btn{border:1px solid var(--border);background:var(--surface);color:var(--text);border-radius:999px;padding:6px 14px;cursor:pointer;font-size:.85rem}
 .fontsize-controls{display:flex;border:1px solid var(--border);border-radius:999px;overflow:hidden}
@@ -52,7 +55,7 @@ section.active{display:block;animation:fade .25s ease}
 @keyframes fade{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
 
 .card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin:16px 0}
-.tag{display:inline-block;background:var(--green-light);color:var(--green-dark);font-size:.75rem;font-weight:600;padding:3px 10px;border-radius:999px;margin-bottom:10px}
+.tag{display:inline-block;background:var(--green-light);color:var(--on-green-light);font-size:.75rem;font-weight:600;padding:3px 10px;border-radius:999px;margin-bottom:10px}
 .hero{text-align:center;padding:30px 10px}
 .hero p.slogan{color:var(--muted);font-size:1.05rem;margin-top:-6px}
 
@@ -60,12 +63,12 @@ section.active{display:block;animation:fade .25s ease}
 .shortcuts button{border:1px solid var(--border);background:var(--surface);border-radius:10px;padding:12px 8px;cursor:pointer;font-weight:600;color:var(--text);font-size:.85rem}
 .shortcuts button:hover{border-color:var(--green)}
 
-.linklike{background:none;border:none;color:var(--green);font-weight:600;text-decoration:underline;cursor:pointer;padding:0;font-size:inherit;font-family:inherit}
+.linklike{background:none;border:none;color:var(--green-text);font-weight:600;text-decoration:underline;cursor:pointer;padding:0;font-size:inherit;font-family:inherit}
 
 .quiz-opt{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
 .quiz-opt button{border:1px solid var(--border);background:var(--surface);padding:8px 14px;border-radius:8px;cursor:pointer;color:var(--text)}
 .quiz-opt button.picked{background:var(--green);color:#fff;border-color:var(--green)}
-.feedback{margin-top:10px;font-size:.9rem;padding:10px;border-radius:8px;background:var(--green-light);color:var(--green-dark);display:none}
+.feedback{margin-top:10px;font-size:.9rem;padding:10px;border-radius:8px;background:var(--green-light);color:var(--on-green-light);display:none}
 .feedback.show{display:block}
 
 .compare{display:grid;grid-template-columns:1fr 1fr;gap:12px}
@@ -85,7 +88,7 @@ section.active{display:block;animation:fade .25s ease}
 .item-card .info h4{margin:0 0 3px;font-family:'Hanken Grotesk';font-size:.98rem}
 .item-card .info p{margin:0;font-size:.8rem;color:var(--muted)}
 .item-card .info .meta{display:flex;gap:8px;flex-wrap:wrap;margin-top:6px}
-.item-card .info .meta span{background:var(--green-light);color:var(--green-dark);font-size:.72rem;padding:2px 8px;border-radius:999px}
+.item-card .info .meta span{background:var(--green-light);color:var(--on-green-light);font-size:.72rem;padding:2px 8px;border-radius:999px}
 .item-card button{border:none;background:var(--green);color:#fff;padding:8px 14px;border-radius:8px;cursor:pointer;font-weight:600;font-size:.82rem;flex:none}
 .item-card button:disabled{background:var(--border);color:var(--muted);cursor:default}
 
@@ -98,14 +101,14 @@ form.donate{display:grid;gap:14px;margin-top:10px}
 .row2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 .btn{background:var(--green);color:#fff;border:none;padding:11px 18px;border-radius:8px;font-weight:600;cursor:pointer;font-size:.9rem}
 .btn:hover{background:var(--green-dark)}
-.banner-success{display:none;background:var(--green-light);color:var(--green-dark);padding:12px;border-radius:10px;margin-top:12px;font-weight:600}
+.banner-success{display:none;background:var(--green-light);color:var(--on-green-light);padding:12px;border-radius:10px;margin-top:12px;font-weight:600}
 .banner-success.show{display:block}
 
 .habit-item{display:flex;gap:10px;align-items:center;padding:9px 0;border-bottom:1px dashed var(--border)}
 .habit-item:last-child{border-bottom:none}
-.habit-item button{margin-left:auto;border:1px solid var(--green);background:transparent;color:var(--green);padding:5px 12px;border-radius:8px;cursor:pointer;font-size:.8rem}
+.habit-item button{margin-left:auto;border:1px solid var(--green-text);background:transparent;color:var(--green-text);padding:5px 12px;border-radius:8px;cursor:pointer;font-size:.8rem}
 .habit-item.selected{background:var(--green-light);border-radius:8px}
-.encourage{display:none;margin-top:14px;background:var(--green-light);color:var(--green-dark);padding:12px;border-radius:10px}
+.encourage{display:none;margin-top:14px;background:var(--green-light);color:var(--on-green-light);padding:12px;border-radius:10px}
 .encourage.show{display:block}
 
 .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:10px}

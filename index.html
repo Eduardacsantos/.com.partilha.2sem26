@@ -10,6 +10,10 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Petrona:wght@600;700&family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+<script>
+  // aplica o tema antes de pintar a página, evitando o flash claro no tema escuro
+  try{ document.documentElement.setAttribute('data-theme', localStorage.getItem('compartilha-theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light')); }catch(e){}
+</script>
 </head>
 <body>
 <a href="#mainContent" class="skip-link">Pular para o conteúdo</a>
@@ -60,13 +64,13 @@
     <form class="donate" id="donateForm" novalidate>
       <div class="field">
         <label for="d_nome">Nome do item</label>
-        <input type="text" id="d_nome" placeholder="Ex: Arroz 5kg">
+        <input type="text" id="d_nome" placeholder="Ex: Arroz 5kg" aria-describedby="err_nome">
         <div class="err" id="err_nome" role="alert">Informe o nome do item.</div>
       </div>
       <div class="row2">
         <div class="field">
           <label for="d_categoria">Categoria</label>
-          <select id="d_categoria">
+          <select id="d_categoria" aria-describedby="err_categoria">
             <option value="">Selecione...</option>
             <option>Grãos e cereais</option>
             <option>Frutas e verduras</option>
@@ -79,25 +83,25 @@
         </div>
         <div class="field">
           <label for="d_qtd">Quantidade</label>
-          <input type="number" id="d_qtd" placeholder="Ex: 3">
-          <div class="err" id="err_qtd" role="alert">Informe um número maior que zero.</div>
+          <input type="number" id="d_qtd" placeholder="Ex: 3" min="1" step="1" aria-describedby="err_qtd">
+          <div class="err" id="err_qtd" role="alert">Informe um número inteiro maior que zero.</div>
         </div>
       </div>
       <div class="row2">
         <div class="field">
           <label for="d_validade">Validade</label>
-          <input type="date" id="d_validade">
+          <input type="date" id="d_validade" aria-describedby="err_validade">
           <div class="err" id="err_validade" role="alert">A data não pode estar no passado.</div>
         </div>
         <div class="field">
           <label for="d_valor">Valor estimado (R$)</label>
-          <input type="number" id="d_valor" placeholder="Ex: 25">
+          <input type="number" id="d_valor" placeholder="Ex: 25" min="0" step="0.01" aria-describedby="err_valor">
           <div class="err" id="err_valor" role="alert">Informe um valor válido (≥ 0).</div>
         </div>
       </div>
       <div class="field">
         <label for="d_local">Local e horário de retirada</label>
-        <input type="text" id="d_local" placeholder="Ex: Rua X, 123 — das 14h às 18h">
+        <input type="text" id="d_local" placeholder="Ex: Rua X, 123 — das 14h às 18h" aria-describedby="err_local">
         <div class="err" id="err_local" role="alert">Informe local e horário.</div>
       </div>
       <button type="submit" class="btn">Cadastrar doação</button>
