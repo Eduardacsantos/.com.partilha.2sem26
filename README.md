@@ -2,7 +2,7 @@
 
 Protótipo funcional do projeto acadêmico ComPartilha: doação de alimentos (módulo
 "Sobra Zero") combinada com conteúdo prático de consumo consciente, em um portal
-leve, sustentável na própria construção e acessível a todos os públicos.
+leve, sustentável na própria construção e acessível a todos os 
 
 ## Tecnologias
 
