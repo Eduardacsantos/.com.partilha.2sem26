@@ -1,0 +1,31 @@
+/* Página Doar e receber (doacao.html) */
+.tabswitch{display:inline-flex;gap:4px;padding:4px;margin:4px 0 0;background:var(--surface-2);border:1px solid var(--border);border-radius:999px}
+.tabbtn{display:inline-flex;align-items:center;gap:6px;border:none;background:transparent;color:var(--muted);padding:8px 16px;border-radius:999px;cursor:pointer;font-weight:600;font-size:.88rem;font-family:inherit;transition:background-color .15s,color .15s}
+.tabbtn:hover{color:var(--text)}
+.tabbtn.active{background:var(--green);color:#fff}
+
+.item-card{border:1px solid var(--border);border-radius:10px;padding:14px;margin-bottom:10px;display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap;transition:border-color .15s}
+.item-card:hover{border-color:var(--green-text)}
+.item-card .info h2{margin:0 0 3px;font-family:'Hanken Grotesk';font-size:.98rem}
+.item-card .info p{margin:0;font-size:.8rem;color:var(--muted)}
+.item-card .info .meta{display:flex;gap:8px;flex-wrap:wrap;margin-top:6px}
+.item-card .info .meta span{background:var(--green-light);color:var(--on-green-light);font-size:.72rem;padding:2px 8px;border-radius:999px}
+.item-card button{border:none;background:var(--green);color:#fff;padding:8px 14px;border-radius:8px;cursor:pointer;font-weight:600;font-size:.82rem;font-family:inherit;flex:none;transition:background-color .15s}
+.item-card button:hover:not(:disabled){background:var(--green-dark)}
+.item-card button:disabled{background:var(--border);color:var(--muted);cursor:default}
+.search-row{margin-bottom:14px}
+.empty-state{color:var(--muted);font-size:.9rem;text-align:center;padding:16px 0}
+
+form.donate{display:grid;gap:14px;margin-top:10px}
+.field label{display:block;font-weight:600;font-size:.85rem;margin-bottom:5px}
+.field input,.field select{width:100%;padding:9px 10px;border-radius:8px;border:1px solid var(--border);background:var(--bg);color:var(--text);font-size:.9rem;font-family:inherit;transition:border-color .15s}
+.field input:hover,.field select:hover{border-color:var(--muted)}
+.field input.invalid,.field select.invalid{border-color:var(--error)}
+.field .err{color:var(--error);font-size:.78rem;margin-top:4px;display:none}
+.field .err.show{display:block}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+form.donate .btn{justify-self:start}
+.banner-success{display:none;background:var(--green-light);color:var(--on-green-light);padding:12px;border-radius:10px;margin-top:12px;font-weight:600}
+.banner-success.show{display:block}
+
+@media(max-width:520px){.row2{grid-template-columns:1fr}}

@@ -1,0 +1,67 @@
+/* Estilos das páginas: projetos, impacto, acessibilidade, galeria, midia, noticias, contato, orcamento_hospedagem */
+.pill{display:inline-block;font-size:.72rem;font-weight:700;padding:2px 10px;border-radius:999px;margin-left:8px;vertical-align:middle;background:var(--green-light);color:var(--on-green-light)}
+.pill.plan{background:var(--surface-2);color:var(--muted);border:1px solid var(--border)}
+.card h2,.card h3{margin-top:0}
+.card ul,.card ol{padding-left:20px;margin:8px 0}
+.card li{margin:4px 0}
+.card .btn{margin-top:10px}
+.cards2{display:grid;grid-template-columns:1fr 1fr;gap:0 16px}
+.source{font-size:.82rem;color:var(--muted)}
+
+/* tabelas: rolam dentro do próprio bloco em telas pequenas */
+.table-wrap{overflow-x:auto;margin:12px 0;border:1px solid var(--border);border-radius:var(--radius);background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:.9rem}
+caption{text-align:left;font-weight:600;padding:12px 14px;color:var(--text)}
+th,td{padding:10px 14px;text-align:left;border-top:1px solid var(--border);vertical-align:top}
+thead th{background:var(--surface-2);font-size:.8rem;text-transform:uppercase;letter-spacing:.04em;color:var(--muted);white-space:nowrap}
+tbody th{font-weight:600}
+td.num{white-space:nowrap}
+tr.destaque td,tr.destaque th{background:var(--green-light);color:var(--on-green-light)}
+
+/* galeria */
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:16px 0}
+.gallery figure{margin:0;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-sm)}
+.gallery img{display:block;width:100%;height:auto;background:var(--green-light)}
+.gallery figcaption{padding:12px 14px;font-size:.86rem}
+.gallery figcaption strong{display:block;font-size:.95rem;margin-bottom:2px}
+.gallery .source{display:block;margin-top:4px}
+
+/* mídia */
+.media-box video,.media-box iframe{display:block;width:100%;border:0;border-radius:10px;background:#000}
+.media-box video{aspect-ratio:16/9;height:auto}
+.media-box iframe{aspect-ratio:16/9;height:auto;min-height:260px;background:var(--surface-2)}
+.media-box audio{display:block;width:100%;margin:8px 0}
+details{margin-top:10px}
+summary{cursor:pointer;font-weight:600;color:var(--green-text)}
+summary:focus-visible,details a:focus-visible,textarea:focus-visible{outline:3px solid var(--green-text);outline-offset:2px}
+
+/* notícias */
+article.post h2{font-size:1.3rem}
+.post-meta{font-size:.82rem;color:var(--muted);margin:0 0 10px}
+
+/* contato */
+.card .members,.members{list-style:none;padding:0;margin:10px 0 0;display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.members li{margin:0;padding:12px;border:1px solid var(--border);border-radius:10px;background:var(--surface-2);font-weight:600;font-size:.92rem}
+.contact-data{display:grid;grid-template-columns:auto 1fr;gap:6px 14px;margin:0}
+.contact-data dt{font-weight:600}
+.contact-data dd{margin:0;color:var(--muted);overflow-wrap:anywhere}
+form.contact{display:grid;gap:14px;margin-top:10px}
+.field label,.field legend{display:block;font-weight:600;font-size:.85rem;margin-bottom:5px}
+.field input:not([type=checkbox]):not([type=radio]),.field select,.field textarea{width:100%;padding:9px 10px;border-radius:8px;border:1px solid var(--border);background:var(--bg);color:var(--text);font-size:.9rem;font-family:inherit;transition:border-color .15s}
+.field textarea{min-height:120px;resize:vertical}
+.field input:hover,.field select:hover,.field textarea:hover{border-color:var(--muted)}
+.field input:user-invalid,.field select:user-invalid,.field textarea:user-invalid{border-color:var(--error)}
+.field .hint{font-size:.78rem;color:var(--muted);margin-top:4px}
+.req{color:var(--error)}
+fieldset.field{border:1px solid var(--border);border-radius:10px;padding:10px 14px;margin:0}
+fieldset.field label{display:flex;gap:8px;align-items:center;font-weight:400;font-size:.9rem;margin:4px 0}
+.check{display:flex;gap:8px;align-items:flex-start;font-size:.88rem}
+.check input{margin-top:4px;accent-color:var(--green)}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+form.contact .btn{justify-self:start}
+.banner-success{display:none;background:var(--green-light);color:var(--on-green-light);padding:12px;border-radius:10px;font-weight:600}
+.banner-success.show{display:block}
+.field input:focus-visible,.field select:focus-visible,.field textarea:focus-visible{outline:3px solid var(--green-text);outline-offset:2px}
+
+@media(max-width:820px){.gallery{grid-template-columns:1fr 1fr}.card .members{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.gallery,.cards2,.row2{grid-template-columns:1fr}.contact-data{grid-template-columns:1fr}.contact-data dt{margin-top:6px}}

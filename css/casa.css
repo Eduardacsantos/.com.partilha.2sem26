@@ -1,0 +1,5 @@
+/* Página Casa (casa.html): desafio de 7 dias */
+.days{display:grid;grid-template-columns:repeat(auto-fill,minmax(90px,1fr));gap:10px;margin-top:16px}
+.day-btn{border:1px solid var(--border);background:var(--surface);border-radius:10px;padding:10px 8px;cursor:pointer;font-weight:600;color:var(--text);font-family:inherit;transition:border-color .15s,background-color .15s}
+.day-btn:hover{border-color:var(--green-text)}
+.day-btn[aria-pressed="true"]{background:var(--green);color:#fff;border-color:var(--green)}
