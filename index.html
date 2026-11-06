@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="ComPartilha: doação de alimentos e conteúdo prático de consumo consciente, em um portal leve e acessível para todos os públicos.">
+<meta name="color-scheme" content="light dark">
+<title>.ComPartilha | O que sobra aqui pode fazer falta ali</title>
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Petrona:wght@600;700&family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/inicio.css">
+<!-- base.js sem defer: aplica o tema antes de pintar a página -->
+<script src="js/base.js"></script>
+<script src="js/itens.js" defer></script>
+<script src="js/inicio.js" defer></script>
+</head>
+<body>
+<!-- ícones usados nesta página (desenhados em SVG: leves e acompanham a cor do texto) -->
+<svg class="sprite" aria-hidden="true" focusable="false">
+  <symbol id="i-moon" viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></symbol>
+  <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></symbol>
+  <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></symbol>
+  <symbol id="i-box" viewBox="0 0 24 24"><path d="M21 8 12 3 3 8v8l9 5 9-5Z"/><path d="m3 8 9 5 9-5"/><path d="M12 13v8"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M21.8 10A10 10 0 1 1 17 3.3"/><path d="m9 11 3 3L22 4"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></symbol>
+  <symbol id="i-heart" viewBox="0 0 24 24"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></symbol>
+</svg>
+
+<a href="#mainContent" class="skip-link">Pular para o conteúdo</a>
+
+<header>
+  <div class="topbar">
+    <a href="index.html" class="brand" aria-label="ComPartilha, página inicial"><span class="dot-com">.Com</span>Partilha</a>
+    <nav id="nav" aria-label="Navegação principal">
+    <a href="index.html" aria-current="page">Início</a>
+    <a href="doacao.html">Doar e receber</a>
+    <a href="aprenda.html">Aprenda</a>
+    <a href="projetos.html">Projetos</a>
+    <a href="impacto.html">Impacto</a>
+    <a href="acessibilidade.html">Acessibilidade</a>
+    <a href="galeria.html">Galeria</a>
+    <a href="midia.html">Mídia</a>
+    <a href="noticias.html">Notícias</a>
+    <a href="sobre.html">Sobre nós</a>
+    <a href="contato.html">Contato</a>
+    <a href="orcamento_hospedagem.html">Orçamento</a>
+    </nav>
+    <div class="controls" role="group" aria-label="Preferências de exibição">
+      <div class="fontsize-controls" role="group" aria-label="Tamanho do texto">
+        <button type="button" id="fontDown" aria-label="Diminuir tamanho do texto">A-</button>
+        <button type="button" id="fontReset" aria-label="Tamanho padrão do texto">A</button>
+        <button type="button" id="fontUp" aria-label="Aumentar tamanho do texto">A+</button>
+      </div>
+      <button type="button" class="theme-btn" id="themeToggle">Escuro</button>
+    </div>
+  </div>
+</header>
+
+<main id="mainContent" tabindex="-1">
+
+<section class="wide">
+  <div class="hero">
+    <div class="hero-text">
+      <span class="eyebrow">Doação de alimentos · Consumo consciente</span>
+      <h1><span class="dot-com">.Com</span>Partilha</h1>
+      <p class="slogan">O que sobra aqui pode fazer falta ali.</p>
+      <p class="lead">Todo dia sobra comida em algum lugar — e falta em outro. O ComPartilha nasceu para encurtar essa distância: uma plataforma simples para doar alimentos antes que se percam, encontrar doações por perto e aprender, no dia a dia, a consumir com mais consciência — na cozinha, no guarda-roupa, em casa e no orçamento.</p>
+      <div class="cta-row">
+        <a class="btn btn-accent" href="doacao.html"><svg class="icon" aria-hidden="true"><use href="#i-heart"/></svg>Quero doar</a>
+        <a class="btn btn-outline" href="doacao.html#receber"><svg class="icon" aria-hidden="true"><use href="#i-search"/></svg>Preciso de alimentos</a>
+      </div>
+    </div>
+
+    <!-- vitrine decorativa: mostra como é uma doação no site -->
+    <div class="hero-preview" aria-hidden="true">
+      <div class="preview-card">
+        <div class="info">
+          <div class="pv-title">Cesta de frutas</div>
+          <p>Mercado Central — das 8h às 11h</p>
+          <div class="meta"><span>Frutas e verduras</span><span>Qtd: 1</span></div>
+        </div>
+        <span class="preview-btn">Solicitar</span>
+      </div>
+      <div class="preview-card">
+        <div class="info">
+          <div class="pv-title">Arroz 5kg</div>
+          <p>Galeria Pagé — das 10h às 18h</p>
+          <div class="meta"><span>Grãos e cereais</span><span>Qtd: 2</span></div>
+        </div>
+        <span class="preview-btn">Solicitar</span>
+      </div>
+      <span class="preview-badge"><svg class="icon"><use href="#i-check"/></svg>Doação solicitada</span>
+    </div>
+  </div>
+
+  <h2 class="visually-hidden">Agora no ComPartilha</h2>
+  <div class="stats">
+    <div class="stat"><span class="stat-value" id="statItens">0</span><span class="stat-label">itens disponíveis para retirada</span></div>
+    <div class="stat"><span class="stat-value" id="statUnidades">0</span><span class="stat-label">unidades esperando um destino</span></div>
+    <div class="stat"><span class="stat-value" id="statValor">R$ 0</span><span class="stat-label">em alimentos salvos do lixo</span></div>
+  </div>
+
+  <div class="section-head">
+    <span class="tag">Como funciona</span>
+    <h2>Doar é simples assim</h2>
+  </div>
+  <ol class="steps">
+    <li class="step">
+      <span class="step-icon"><svg class="icon" aria-hidden="true"><use href="#i-box"/></svg></span>
+      <h3>Cadastre o que sobrou</h3>
+      <p>Informe o alimento, a quantidade, a validade e onde retirar.</p>
+    </li>
+    <li class="step">
+      <span class="step-icon"><svg class="icon" aria-hidden="true"><use href="#i-pin"/></svg></span>
+      <h3>Alguém por perto encontra</h3>
+      <p>Quem precisa busca por nome ou categoria e solicita o item.</p>
+    </li>
+    <li class="step">
+      <span class="step-icon"><svg class="icon" aria-hidden="true"><use href="#i-clock"/></svg></span>
+      <h3>Retirada no horário</h3>
+      <p>O alimento chega a quem precisa antes de se perder.</p>
+    </li>
+  </ol>
+
+  <div class="cta-card">
+    <div>
+      <h3>Doar começa antes da sobra</h3>
+      <p>Sete temas práticos para consumir melhor na cozinha, em casa e no orçamento.</p>
+    </div>
+    <a class="btn btn-light" href="aprenda.html">Explorar os temas<svg class="icon icon-end" aria-hidden="true"><use href="#i-arrow-right"/></svg></a>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <a href="index.html" class="brand footer-brand"><span class="dot-com">.Com</span>Partilha</a>
+      <p>O que sobra aqui pode fazer falta ali.</p>
+    </div>
+    <div>
+      <h2>Mapa do site</h2>
+      <ul class="footer-links">
+        <li><a href="doacao.html">Doar e receber</a></li>
+        <li><a href="aprenda.html">Aprenda</a></li>
+        <li><a href="projetos.html">Projetos</a></li>
+        <li><a href="impacto.html">Impacto</a></li>
+        <li><a href="acessibilidade.html">Acessibilidade</a></li>
+        <li><a href="galeria.html">Galeria</a></li>
+        <li><a href="midia.html">Mídia</a></li>
+        <li><a href="noticias.html">Notícias</a></li>
+        <li><a href="sobre.html">Sobre nós</a></li>
+        <li><a href="contato.html">Contato</a></li>
+        <li><a href="orcamento_hospedagem.html">Orçamento de hospedagem</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Projeto acadêmico</h2>
+      <p>Desenvolvido pela equipe ComPartilha. Os integrantes estão na página <a href="contato.html">Contato</a>.</p>
+      <p>Protótipo funcional, feito para ser leve e acessível a todos os públicos.</p>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

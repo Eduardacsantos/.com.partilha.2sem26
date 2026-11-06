@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Como reduzir o desperdício de alimentos em casa.">
+<meta name="color-scheme" content="light dark">
+<title>Alimentação | .ComPartilha</title>
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Petrona:wght@600;700&family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/base.css">
+<!-- base.js sem defer: aplica o tema antes de pintar a página -->
+<script src="js/base.js"></script>
+<script src="js/checklist.js" defer></script>
+</head>
+<body>
+<!-- ícones usados nesta página (desenhados em SVG: leves e acompanham a cor do texto) -->
+<svg class="sprite" aria-hidden="true" focusable="false">
+  <symbol id="i-moon" viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></symbol>
+  <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></symbol>
+  <symbol id="i-arrow-left" viewBox="0 0 24 24"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></symbol>
+  <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></symbol>
+</svg>
+
+<a href="#mainContent" class="skip-link">Pular para o conteúdo</a>
+
+<header>
+  <div class="topbar">
+    <a href="index.html" class="brand" aria-label="ComPartilha, página inicial"><span class="dot-com">.Com</span>Partilha</a>
+    <nav id="nav" aria-label="Navegação principal">
+    <a href="index.html">Início</a>
+    <a href="doacao.html">Doar e receber</a>
+    <a href="aprenda.html" aria-current="page">Aprenda</a>
+    <a href="projetos.html">Projetos</a>
+    <a href="impacto.html">Impacto</a>
+    <a href="acessibilidade.html">Acessibilidade</a>
+    <a href="galeria.html">Galeria</a>
+    <a href="midia.html">Mídia</a>
+    <a href="noticias.html">Notícias</a>
+    <a href="sobre.html">Sobre nós</a>
+    <a href="contato.html">Contato</a>
+    <a href="orcamento_hospedagem.html">Orçamento</a>
+    </nav>
+    <div class="controls" role="group" aria-label="Preferências de exibição">
+      <div class="fontsize-controls" role="group" aria-label="Tamanho do texto">
+        <button type="button" id="fontDown" aria-label="Diminuir tamanho do texto">A-</button>
+        <button type="button" id="fontReset" aria-label="Tamanho padrão do texto">A</button>
+        <button type="button" id="fontUp" aria-label="Aumentar tamanho do texto">A+</button>
+      </div>
+      <button type="button" class="theme-btn" id="themeToggle">Escuro</button>
+    </div>
+  </div>
+</header>
+
+<main id="mainContent" tabindex="-1">
+
+<section>
+  <div class="section-head">
+    <span class="tag">Alimentação</span>
+    <h1>Consumo consciente de alimentos</h1>
+  </div>
+  <div class="card">
+    <p>Reduzir o desperdício começa antes mesmo da comida sobrar: planejamento de compras, aproveitamento integral dos alimentos e armazenamento correto evitam que tanta coisa boa vá para o lixo.</p>
+    <p>Tem algo sobrando em casa? <a class="linklike" href="doacao.html">Doe na página Doar e receber →</a></p>
+  </div>
+  <div class="card checklist">
+    <h2>Reduza o desperdício em casa</h2>
+    <label><input type="checkbox">Planejo as compras da semana antes de ir ao mercado</label>
+    <label><input type="checkbox">Aproveito talos, cascas e sobras nas refeições</label>
+    <label><input type="checkbox">Guardo os alimentos da forma correta para durarem mais</label>
+    <label><input type="checkbox">Congelo o que não vou consumir a tempo</label>
+    <label><input type="checkbox">Doo o excedente antes do vencimento</label>
+    <div class="progress"><div class="progress-fill"></div></div>
+  </div>
+
+  <nav class="topic-nav" aria-label="Temas do Aprenda">
+    <a href="aprenda.html"><svg class="icon" aria-hidden="true"><use href="#i-arrow-left"/></svg>Todos os temas</a>
+    <a href="casa.html">Próximo: Casa<svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg></a>
+  </nav>
+</section>
+
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <a href="index.html" class="brand footer-brand"><span class="dot-com">.Com</span>Partilha</a>
+      <p>O que sobra aqui pode fazer falta ali.</p>
+    </div>
+    <div>
+      <h2>Mapa do site</h2>
+      <ul class="footer-links">
+        <li><a href="doacao.html">Doar e receber</a></li>
+        <li><a href="aprenda.html">Aprenda</a></li>
+        <li><a href="projetos.html">Projetos</a></li>
+        <li><a href="impacto.html">Impacto</a></li>
+        <li><a href="acessibilidade.html">Acessibilidade</a></li>
+        <li><a href="galeria.html">Galeria</a></li>
+        <li><a href="midia.html">Mídia</a></li>
+        <li><a href="noticias.html">Notícias</a></li>
+        <li><a href="sobre.html">Sobre nós</a></li>
+        <li><a href="contato.html">Contato</a></li>
+        <li><a href="orcamento_hospedagem.html">Orçamento de hospedagem</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Projeto acadêmico</h2>
+      <p>Desenvolvido pela equipe ComPartilha. Os integrantes estão na página <a href="contato.html">Contato</a>.</p>
+      <p>Protótipo funcional, feito para ser leve e acessível a todos os públicos.</p>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

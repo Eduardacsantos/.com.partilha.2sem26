@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Fale com a equipe ComPartilha: dados de contato fictícios, integrantes do projeto e formulário com validação HTML5.">
+<meta name="color-scheme" content="light dark">
+<title>Contato | .ComPartilha</title>
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Petrona:wght@600;700&family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/paginas.css">
+<!-- base.js sem defer: aplica o tema antes de pintar a página -->
+<script src="js/base.js"></script>
+<script src="js/contato.js" defer></script>
+</head>
+<body>
+<!-- ícones usados nesta página (desenhados em SVG: leves e acompanham a cor do texto) -->
+<svg class="sprite" aria-hidden="true" focusable="false">
+  <symbol id="i-moon" viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></symbol>
+  <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></symbol>
+</svg>
+
+<a href="#mainContent" class="skip-link">Pular para o conteúdo</a>
+
+<header>
+  <div class="topbar">
+    <a href="index.html" class="brand" aria-label="ComPartilha, página inicial"><span class="dot-com">.Com</span>Partilha</a>
+    <nav id="nav" aria-label="Navegação principal">
+    <a href="index.html">Início</a>
+    <a href="doacao.html">Doar e receber</a>
+    <a href="aprenda.html">Aprenda</a>
+    <a href="projetos.html">Projetos</a>
+    <a href="impacto.html">Impacto</a>
+    <a href="acessibilidade.html">Acessibilidade</a>
+    <a href="galeria.html">Galeria</a>
+    <a href="midia.html">Mídia</a>
+    <a href="noticias.html">Notícias</a>
+    <a href="sobre.html">Sobre nós</a>
+    <a href="contato.html" aria-current="page">Contato</a>
+    <a href="orcamento_hospedagem.html">Orçamento</a>
+    </nav>
+    <div class="controls" role="group" aria-label="Preferências de exibição">
+      <div class="fontsize-controls" role="group" aria-label="Tamanho do texto">
+        <button type="button" id="fontDown" aria-label="Diminuir tamanho do texto">A-</button>
+        <button type="button" id="fontReset" aria-label="Tamanho padrão do texto">A</button>
+        <button type="button" id="fontUp" aria-label="Aumentar tamanho do texto">A+</button>
+      </div>
+      <button type="button" class="theme-btn" id="themeToggle">Escuro</button>
+    </div>
+  </div>
+</header>
+
+<main id="mainContent" tabindex="-1">
+
+<section>
+  <div class="section-head">
+    <span class="tag">Contato</span>
+    <h1>Fale com a gente</h1>
+    <p class="lead">Dúvidas, sugestões ou vontade de ajudar? Escreva para a equipe.</p>
+  </div>
+  <div class="card">
+    <h2>Dados de contato (fictícios)</h2>
+    <dl class="contact-data">
+      <dt>E-mail</dt><dd>contato@compartilha.example</dd>
+      <dt>Telefone</dt><dd>(11) 90000-0000</dd>
+      <dt>Endereço</dt><dd>Rua Exemplo, 100 — Tatuapé, São Paulo - SP, 00000-000</dd>
+      <dt>Atendimento</dt><dd>Segunda a sexta, das 9h às 18h</dd>
+    </dl>
+    <p class="note">Este é um projeto acadêmico: os dados acima são fictícios.</p>
+  </div>
+  <div class="card">
+    <h2>Integrantes da equipe</h2>
+    <ul class="members">
+      <li>Beatriz</li>
+      <li>Eduarda</li>
+      <li>Henrique</li>
+      <li>Julia</li>
+      <li>Vitória</li>
+      <li>[Nome do 6º integrante]</li>
+    </ul>
+    <p class="note">Projeto da disciplina de Front-End, Curso Superior de Informática, UNICID.</p>
+  </div>
+  <div class="card">
+    <h2>Envie uma mensagem</h2>
+    <p class="note">Campos com <span class="req" aria-hidden="true">*</span><span class="visually-hidden">asterisco</span> são obrigatórios.</p>
+    <form class="contact" id="contactForm" method="post">
+      <div class="field">
+        <label for="c_nome">Nome completo <span class="req" aria-hidden="true">*</span></label>
+        <input type="text" id="c_nome" name="nome" required minlength="3" maxlength="80" pattern="[A-Za-zÀ-ÿ' ]{3,80}" autocomplete="name" aria-describedby="h_nome" placeholder="Ex: Maria da Silva">
+        <div class="hint" id="h_nome">Use apenas letras e espaços (mínimo de 3 letras).</div>
+      </div>
+      <div class="row2">
+        <div class="field">
+          <label for="c_email">E-mail <span class="req" aria-hidden="true">*</span></label>
+          <input type="email" id="c_email" name="email" required pattern="[^@\s]+@[^@\s]+\.[^@\s]+" title="Informe um e-mail completo, como voce@exemplo.com" autocomplete="email" placeholder="voce@exemplo.com">
+        </div>
+        <div class="field">
+          <label for="c_tel">Telefone</label>
+          <input type="tel" id="c_tel" name="telefone" pattern="\(?\d{2}\)?\s?9?\d{4}-?\d{4}" autocomplete="tel" aria-describedby="h_tel" placeholder="(11) 91234-5678">
+          <div class="hint" id="h_tel">Opcional. Formato: (11) 91234-5678.</div>
+        </div>
+      </div>
+      <fieldset class="field">
+        <legend>Eu sou <span class="req" aria-hidden="true">*</span></legend>
+        <label><input type="radio" name="perfil" value="doador" required> Doador</label>
+        <label><input type="radio" name="perfil" value="receptor"> Pessoa que busca doação</label>
+        <label><input type="radio" name="perfil" value="voluntario"> Voluntário</label>
+        <label><input type="radio" name="perfil" value="outro"> Outro</label>
+      </fieldset>
+      <div class="row2">
+        <div class="field">
+          <label for="c_assunto">Assunto <span class="req" aria-hidden="true">*</span></label>
+          <select id="c_assunto" name="assunto" required>
+            <option value="">Selecione...</option>
+            <option>Dúvida</option>
+            <option>Sugestão</option>
+            <option>Quero doar</option>
+            <option>Quero ser parceiro</option>
+            <option>Problema no site</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="c_data">Melhor data para retorno</label>
+          <input type="date" id="c_data" name="data_retorno">
+        </div>
+      </div>
+      <div class="field">
+        <label for="c_qtd">Quantidade de itens que você pretende doar</label>
+        <input type="number" id="c_qtd" name="quantidade" min="0" max="999" step="1" aria-describedby="h_qtd" placeholder="0">
+        <div class="hint" id="h_qtd">Opcional. Número inteiro de 0 a 999.</div>
+      </div>
+      <div class="field">
+        <label for="c_msg">Mensagem <span class="req" aria-hidden="true">*</span></label>
+        <textarea id="c_msg" name="mensagem" required minlength="10" maxlength="500" aria-describedby="c_contador"></textarea>
+        <div class="hint" id="c_contador">0 / 500 caracteres</div>
+      </div>
+      <div class="check">
+        <input type="checkbox" id="c_lgpd" name="consentimento" required>
+        <label for="c_lgpd">Concordo em usar meus dados apenas para receber retorno da equipe. <span class="req" aria-hidden="true">*</span></label>
+      </div>
+      <button type="submit" class="btn btn-accent">Enviar mensagem</button>
+      <div class="banner-success" id="contactSuccess" role="status" aria-live="polite" tabindex="-1"></div>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <a href="index.html" class="brand footer-brand"><span class="dot-com">.Com</span>Partilha</a>
+      <p>O que sobra aqui pode fazer falta ali.</p>
+    </div>
+    <div>
+      <h2>Mapa do site</h2>
+      <ul class="footer-links">
+        <li><a href="doacao.html">Doar e receber</a></li>
+        <li><a href="aprenda.html">Aprenda</a></li>
+        <li><a href="projetos.html">Projetos</a></li>
+        <li><a href="impacto.html">Impacto</a></li>
+        <li><a href="acessibilidade.html">Acessibilidade</a></li>
+        <li><a href="galeria.html">Galeria</a></li>
+        <li><a href="midia.html">Mídia</a></li>
+        <li><a href="noticias.html">Notícias</a></li>
+        <li><a href="sobre.html">Sobre nós</a></li>
+        <li><a href="contato.html">Contato</a></li>
+        <li><a href="orcamento_hospedagem.html">Orçamento de hospedagem</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Projeto acadêmico</h2>
+      <p>Desenvolvido pela equipe ComPartilha. Os integrantes estão na página <a href="contato.html">Contato</a>.</p>
+      <p>Protótipo funcional, feito para ser leve e acessível a todos os públicos.</p>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

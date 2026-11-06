@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Cadastre alimentos para doação ou encontre doações disponíveis perto de você.">
+<meta name="color-scheme" content="light dark">
+<title>Doar e receber | .ComPartilha</title>
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Petrona:wght@600;700&family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/doacao.css">
+<!-- base.js sem defer: aplica o tema antes de pintar a página -->
+<script src="js/base.js"></script>
+<script src="js/itens.js" defer></script>
+<script src="js/doacao.js" defer></script>
+</head>
+<body>
+<!-- ícones usados nesta página (desenhados em SVG: leves e acompanham a cor do texto) -->
+<svg class="sprite" aria-hidden="true" focusable="false">
+  <symbol id="i-moon" viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></symbol>
+  <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></symbol>
+  <symbol id="i-heart" viewBox="0 0 24 24"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></symbol>
+</svg>
+
+<a href="#mainContent" class="skip-link">Pular para o conteúdo</a>
+
+<header>
+  <div class="topbar">
+    <a href="index.html" class="brand" aria-label="ComPartilha, página inicial"><span class="dot-com">.Com</span>Partilha</a>
+    <nav id="nav" aria-label="Navegação principal">
+    <a href="index.html">Início</a>
+    <a href="doacao.html" aria-current="page">Doar e receber</a>
+    <a href="aprenda.html">Aprenda</a>
+    <a href="projetos.html">Projetos</a>
+    <a href="impacto.html">Impacto</a>
+    <a href="acessibilidade.html">Acessibilidade</a>
+    <a href="galeria.html">Galeria</a>
+    <a href="midia.html">Mídia</a>
+    <a href="noticias.html">Notícias</a>
+    <a href="sobre.html">Sobre nós</a>
+    <a href="contato.html">Contato</a>
+    <a href="orcamento_hospedagem.html">Orçamento</a>
+    </nav>
+    <div class="controls" role="group" aria-label="Preferências de exibição">
+      <div class="fontsize-controls" role="group" aria-label="Tamanho do texto">
+        <button type="button" id="fontDown" aria-label="Diminuir tamanho do texto">A-</button>
+        <button type="button" id="fontReset" aria-label="Tamanho padrão do texto">A</button>
+        <button type="button" id="fontUp" aria-label="Aumentar tamanho do texto">A+</button>
+      </div>
+      <button type="button" class="theme-btn" id="themeToggle">Escuro</button>
+    </div>
+  </div>
+</header>
+
+<main id="mainContent" tabindex="-1">
+
+<section>
+  <div class="section-head">
+    <span class="tag">Doação</span>
+    <h1>Sobra Zero — doação de alimentos</h1>
+  </div>
+  <div class="card"><p>Cerca de um terço de todo alimento produzido no mundo é desperdiçado. Planejar compras, aproveitar integralmente os alimentos e doar excedentes antes do vencimento são atitudes simples com grande impacto.</p></div>
+
+  <div class="tabswitch" id="foodTabs" role="group" aria-label="Alternar entre doador e receptor">
+    <button type="button" data-tab="doador" class="tabbtn active" aria-pressed="true"><svg class="icon" aria-hidden="true"><use href="#i-heart"/></svg>Doador</button>
+    <button type="button" data-tab="receber" class="tabbtn" aria-pressed="false"><svg class="icon" aria-hidden="true"><use href="#i-search"/></svg>Receba a doação</button>
+  </div>
+
+  <div class="card" id="painelDoador">
+    <p class="note">Cadastre um item para doação. Todos os campos têm validação real.</p>
+    <form class="donate" id="donateForm" novalidate>
+      <div class="field">
+        <label for="d_nome">Nome do item</label>
+        <input type="text" id="d_nome" required placeholder="Ex: Arroz 5kg" aria-describedby="err_nome">
+        <div class="err" id="err_nome" role="alert">Informe o nome do item.</div>
+      </div>
+      <div class="row2">
+        <div class="field">
+          <label for="d_categoria">Categoria</label>
+          <select id="d_categoria" required aria-describedby="err_categoria">
+            <option value="">Selecione...</option>
+            <option>Grãos e cereais</option>
+            <option>Frutas e verduras</option>
+            <option>Enlatados</option>
+            <option>Laticínios</option>
+            <option>Padaria</option>
+            <option>Outros</option>
+          </select>
+          <div class="err" id="err_categoria" role="alert">Selecione uma categoria.</div>
+        </div>
+        <div class="field">
+          <label for="d_qtd">Quantidade</label>
+          <input type="number" id="d_qtd" required placeholder="Ex: 3" min="1" step="1" aria-describedby="err_qtd">
+          <div class="err" id="err_qtd" role="alert">Informe um número inteiro maior que zero.</div>
+        </div>
+      </div>
+      <div class="row2">
+        <div class="field">
+          <label for="d_validade">Validade</label>
+          <input type="date" id="d_validade" required aria-describedby="err_validade">
+          <div class="err" id="err_validade" role="alert">A data não pode estar no passado.</div>
+        </div>
+        <div class="field">
+          <label for="d_valor">Valor estimado (R$)</label>
+          <input type="number" id="d_valor" required placeholder="Ex: 25" min="0" step="0.01" aria-describedby="err_valor">
+          <div class="err" id="err_valor" role="alert">Informe um valor válido (≥ 0).</div>
+        </div>
+      </div>
+      <div class="field">
+        <label for="d_local">Local e horário de retirada</label>
+        <input type="text" id="d_local" required placeholder="Ex: Rua X, 123 — das 14h às 18h" aria-describedby="err_local">
+        <div class="err" id="err_local" role="alert">Informe local e horário.</div>
+      </div>
+      <button type="submit" class="btn btn-accent">Cadastrar doação</button>
+      <div class="banner-success" id="donateSuccess" role="status" aria-live="polite">✅ Item cadastrado com sucesso! Obrigado por doar.</div>
+    </form>
+  </div>
+
+  <div class="card" id="painelReceptor" hidden>
+    <p class="note">Veja os itens disponíveis para doação perto de você e solicite o que precisar.</p>
+    <div class="row2 search-row">
+      <div class="field">
+        <label for="r_busca" class="visually-hidden">Buscar item</label>
+        <input type="text" id="r_busca" placeholder="Buscar por nome do item...">
+      </div>
+      <div class="field">
+        <label for="r_filtroCategoria" class="visually-hidden">Filtrar por categoria</label>
+        <select id="r_filtroCategoria">
+          <option value="">Todas as categorias</option>
+          <option>Grãos e cereais</option>
+          <option>Frutas e verduras</option>
+          <option>Enlatados</option>
+          <option>Laticínios</option>
+          <option>Padaria</option>
+          <option>Outros</option>
+        </select>
+      </div>
+    </div>
+    <div id="itemList" aria-live="polite"></div>
+    <p id="itemListEmpty" class="empty-state" hidden>Nenhum item encontrado com esse filtro.</p>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <a href="index.html" class="brand footer-brand"><span class="dot-com">.Com</span>Partilha</a>
+      <p>O que sobra aqui pode fazer falta ali.</p>
+    </div>
+    <div>
+      <h2>Mapa do site</h2>
+      <ul class="footer-links">
+        <li><a href="doacao.html">Doar e receber</a></li>
+        <li><a href="aprenda.html">Aprenda</a></li>
+        <li><a href="projetos.html">Projetos</a></li>
+        <li><a href="impacto.html">Impacto</a></li>
+        <li><a href="acessibilidade.html">Acessibilidade</a></li>
+        <li><a href="galeria.html">Galeria</a></li>
+        <li><a href="midia.html">Mídia</a></li>
+        <li><a href="noticias.html">Notícias</a></li>
+        <li><a href="sobre.html">Sobre nós</a></li>
+        <li><a href="contato.html">Contato</a></li>
+        <li><a href="orcamento_hospedagem.html">Orçamento de hospedagem</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Projeto acadêmico</h2>
+      <p>Desenvolvido pela equipe ComPartilha. Os integrantes estão na página <a href="contato.html">Contato</a>.</p>
+      <p>Protótipo funcional, feito para ser leve e acessível a todos os públicos.</p>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

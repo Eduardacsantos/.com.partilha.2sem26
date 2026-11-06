@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Blog do ComPartilha: dicas contra o desperdício, dados sobre alimentos e novidades do projeto.">
+<meta name="color-scheme" content="light dark">
+<title>Notícias e blog | .ComPartilha</title>
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Petrona:wght@600;700&family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/paginas.css">
+<!-- base.js sem defer: aplica o tema antes de pintar a página -->
+<script src="js/base.js"></script>
+</head>
+<body>
+<!-- ícones usados nesta página (desenhados em SVG: leves e acompanham a cor do texto) -->
+<svg class="sprite" aria-hidden="true" focusable="false">
+  <symbol id="i-moon" viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></symbol>
+  <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></symbol>
+</svg>
+
+<a href="#mainContent" class="skip-link">Pular para o conteúdo</a>
+
+<header>
+  <div class="topbar">
+    <a href="index.html" class="brand" aria-label="ComPartilha, página inicial"><span class="dot-com">.Com</span>Partilha</a>
+    <nav id="nav" aria-label="Navegação principal">
+    <a href="index.html">Início</a>
+    <a href="doacao.html">Doar e receber</a>
+    <a href="aprenda.html">Aprenda</a>
+    <a href="projetos.html">Projetos</a>
+    <a href="impacto.html">Impacto</a>
+    <a href="acessibilidade.html">Acessibilidade</a>
+    <a href="galeria.html">Galeria</a>
+    <a href="midia.html">Mídia</a>
+    <a href="noticias.html" aria-current="page">Notícias</a>
+    <a href="sobre.html">Sobre nós</a>
+    <a href="contato.html">Contato</a>
+    <a href="orcamento_hospedagem.html">Orçamento</a>
+    </nav>
+    <div class="controls" role="group" aria-label="Preferências de exibição">
+      <div class="fontsize-controls" role="group" aria-label="Tamanho do texto">
+        <button type="button" id="fontDown" aria-label="Diminuir tamanho do texto">A-</button>
+        <button type="button" id="fontReset" aria-label="Tamanho padrão do texto">A</button>
+        <button type="button" id="fontUp" aria-label="Aumentar tamanho do texto">A+</button>
+      </div>
+      <button type="button" class="theme-btn" id="themeToggle">Escuro</button>
+    </div>
+  </div>
+</header>
+
+<main id="mainContent" tabindex="-1">
+
+<section>
+  <div class="section-head">
+    <span class="tag">Blog</span>
+    <h1>Notícias e blog</h1>
+    <p class="lead">Textos da equipe sobre desperdício, consumo consciente e o andamento do projeto.</p>
+  </div>
+  <article class="card post">
+    <h2>Atualização do protótipo: menu novo e mais páginas</h2>
+    <p class="post-meta"><time datetime="2026-11-04">04 de novembro de 2026</time> · Equipe ComPartilha</p>
+    <p>A segunda versão do portal reúne agora as 10 páginas principais do projeto: Início, Sobre nós, Projetos, Impacto, Acessibilidade, Galeria, Mídia, Notícias, Contato e Orçamento de hospedagem, além do módulo Doar e receber e dos sete temas do Aprenda. O menu foi reorganizado para caber tudo sem perder a navegação por teclado.</p>
+  </article>
+  <article class="card post">
+    <h2>O desperdício de alimentos em números</h2>
+    <p class="post-meta"><time datetime="2026-11-02">02 de novembro de 2026</time> · Equipe ComPartilha</p>
+    <p>O relatório Food Waste Index 2024, do Programa das Nações Unidas para o Meio Ambiente, estima que o mundo desperdiçou 1,05 bilhão de toneladas de alimentos em 2022. A maior parte, 60%, saiu das casas das pessoas. No Brasil, a Embrapa informou que o desperdício domiciliar fica em torno de 94 kg por pessoa ao ano, contando também cascas e ossos. Os dados completos estão na página <a href="impacto.html">Impacto</a>.</p>
+    <p class="source">Fontes: <a href="https://unep.org/news-and-stories/press-release/world-squanders-over-1-billion-meals-day-un-report">UNEP</a> e <a href="https://embrapa.br/busca-de-noticias/-/noticia/87972089/world-squanders-over-1-billion-meals-a-day-according-to-un">Embrapa</a>.</p>
+  </article>
+  <article class="card post">
+    <h2>Cinco jeitos de aproveitar o que sobra na cozinha</h2>
+    <p class="post-meta"><time datetime="2026-10-30">30 de outubro de 2026</time> · Equipe ComPartilha</p>
+    <ol>
+      <li>Planeje as compras com a geladeira aberta: leve só o que falta.</li>
+      <li>Use talos, folhas e cascas em refogados, bolinhos e caldos.</li>
+      <li>Congele o que não vai dar tempo de comer, com a data na embalagem.</li>
+      <li>Coloque o alimento mais antigo na frente e o mais novo atrás.</li>
+      <li>Se mesmo assim sobrar, doe antes de vencer: é para isso que existe o <a href="doacao.html">Sobra Zero</a>.</li>
+    </ol>
+  </article>
+  <article class="card post">
+    <h2>O que aprendemos fazendo um site acessível</h2>
+    <p class="post-meta"><time datetime="2026-10-27">27 de outubro de 2026</time> · Equipe ComPartilha</p>
+    <p>Acessibilidade dá menos trabalho quando entra no começo. Usar os elementos HTML certos, rotular cada campo e garantir foco visível resolveu a maior parte dos problemas sem nenhum código extra. O que exigiu mais cuidado foi o contraste das cores nos dois temas. Veja tudo o que fizemos na página <a href="acessibilidade.html">Acessibilidade</a>.</p>
+  </article>
+</section>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <a href="index.html" class="brand footer-brand"><span class="dot-com">.Com</span>Partilha</a>
+      <p>O que sobra aqui pode fazer falta ali.</p>
+    </div>
+    <div>
+      <h2>Mapa do site</h2>
+      <ul class="footer-links">
+        <li><a href="doacao.html">Doar e receber</a></li>
+        <li><a href="aprenda.html">Aprenda</a></li>
+        <li><a href="projetos.html">Projetos</a></li>
+        <li><a href="impacto.html">Impacto</a></li>
+        <li><a href="acessibilidade.html">Acessibilidade</a></li>
+        <li><a href="galeria.html">Galeria</a></li>
+        <li><a href="midia.html">Mídia</a></li>
+        <li><a href="noticias.html">Notícias</a></li>
+        <li><a href="sobre.html">Sobre nós</a></li>
+        <li><a href="contato.html">Contato</a></li>
+        <li><a href="orcamento_hospedagem.html">Orçamento de hospedagem</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Projeto acadêmico</h2>
+      <p>Desenvolvido pela equipe ComPartilha. Os integrantes estão na página <a href="contato.html">Contato</a>.</p>
+      <p>Protótipo funcional, feito para ser leve e acessível a todos os públicos.</p>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
