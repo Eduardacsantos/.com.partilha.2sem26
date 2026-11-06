@@ -6,7 +6,7 @@
 |---|---|
 | Nome da equipe | Equipe ComPartilha |
 | Nome do projeto/site | ComPartilha: doação de alimentos e consumo consciente |
-| Integrantes | Beatriz, Eduarda, Henrique, Julia, Vitória e [nome do 6º integrante] (**completar com nome completo de todos**) |
+| Integrantes | Beatriz Fonseca Dias, Eduarda Carneiro dos Santos, Henrique Cordeiro Gonçalves, Julia Caroline Hütter de Lemos, Letícia Santos da Silva e Vitória Aparecida de Assis Silva |
 | Data | 04/11/2026 |
 | Professor/disciplina | Prof. Paulo Fratta, Front-End, Curso Superior de Informática, UNICID |
 
@@ -107,12 +107,12 @@ HTML5, CSS3 (variáveis, grid, flexbox) e JavaScript puro. Editor: VS Code com L
 
 | Etapa | Prazo | Responsável |
 |---|---|---|
-| Definir tema, escopo e identidade visual | [preencher] | Todos |
-| Páginas base, doação e temas do Aprenda | [preencher] | Ver tabela de funções em `docs/README.md` |
-| Páginas exigidas (projetos, impacto, acessibilidade, galeria, mídia, notícias, contato, orçamento) | 04/11/2026 | Ver tabela de funções |
-| Validação W3C e testes de acessibilidade | [preencher] | Todos |
-| Documentação em `/docs` e compactação do `.zip` | [preencher] | [definir] |
-| Entrega no Blackboard | Data informada no Blackboard | Todos |
+| Definir tema, escopo e identidade visual | 21/09/2026 | Todos |
+| Páginas base, doação e temas do Aprenda | 28/09/2026 | Ver tabela de funções em `docs/README.md` |
+| Páginas exigidas (projetos, impacto, acessibilidade, galeria, mídia, notícias, contato, orçamento) | 15/10/2026 | Ver tabela de funções |
+| Validação W3C e testes de acessibilidade | [25/10/2026 | Todos |
+| Documentação em `/docs` e compactação do `.zip` | 03/11/2026 | Ver tabela de funções |
+| Entrega no Blackboard | 09/11/2026 | Todos |
 
 Ferramentas de gestão: GitHub (histórico de commits) e [Trello/Notion, se usarem].
 
