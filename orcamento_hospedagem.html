@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Relatório comparativo de três hospedagens e três domínios para publicar o ComPartilha, com tabela de custos e justificativa.">
+<meta name="color-scheme" content="light dark">
+<title>Orçamento de hospedagem e domínio | .ComPartilha</title>
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Petrona:wght@600;700&family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/paginas.css">
+<!-- base.js sem defer: aplica o tema antes de pintar a página -->
+<script src="js/base.js"></script>
+</head>
+<body>
+<!-- ícones usados nesta página (desenhados em SVG: leves e acompanham a cor do texto) -->
+<svg class="sprite" aria-hidden="true" focusable="false">
+  <symbol id="i-moon" viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></symbol>
+  <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></symbol>
+</svg>
+
+<a href="#mainContent" class="skip-link">Pular para o conteúdo</a>
+
+<header>
+  <div class="topbar">
+    <a href="index.html" class="brand" aria-label="ComPartilha, página inicial"><span class="dot-com">.Com</span>Partilha</a>
+    <nav id="nav" aria-label="Navegação principal">
+    <a href="index.html">Início</a>
+    <a href="doacao.html">Doar e receber</a>
+    <a href="aprenda.html">Aprenda</a>
+    <a href="projetos.html">Projetos</a>
+    <a href="impacto.html">Impacto</a>
+    <a href="acessibilidade.html">Acessibilidade</a>
+    <a href="galeria.html">Galeria</a>
+    <a href="midia.html">Mídia</a>
+    <a href="noticias.html">Notícias</a>
+    <a href="sobre.html">Sobre nós</a>
+    <a href="contato.html">Contato</a>
+    <a href="orcamento_hospedagem.html" aria-current="page">Orçamento</a>
+    </nav>
+    <div class="controls" role="group" aria-label="Preferências de exibição">
+      <div class="fontsize-controls" role="group" aria-label="Tamanho do texto">
+        <button type="button" id="fontDown" aria-label="Diminuir tamanho do texto">A-</button>
+        <button type="button" id="fontReset" aria-label="Tamanho padrão do texto">A</button>
+        <button type="button" id="fontUp" aria-label="Aumentar tamanho do texto">A+</button>
+      </div>
+      <button type="button" class="theme-btn" id="themeToggle">Escuro</button>
+    </div>
+  </div>
+</header>
+
+<main id="mainContent" tabindex="-1">
+
+<section class="wide">
+  <div class="section-head">
+    <span class="tag">Orçamento</span>
+    <h1>Hospedagem e domínio</h1>
+    <p class="lead">Relatório comparativo de hospedagem e domínio do ComPartilha. O site já está no ar na Vercel, sem nenhum custo. Valores pesquisados em 04/11/2026 e conferidos de novo em 07/11/2026.</p>
+  </div>
+  <p class="note">Os preços vêm dos sites dos provedores, de sites de comparação e do Registro.br e mudam com frequência. Confira no site oficial de cada empresa antes de contratar.</p>
+
+  <h2>Hospedagens comparadas</h2>
+  <div class="table-wrap">
+  <table>
+    <caption>Hospedagem de sites: três opções</caption>
+    <thead><tr><th scope="col">Provedor</th><th scope="col">Preço de entrada</th><th scope="col">Depois do período grátis ou na renovação</th><th scope="col">Servidores no Brasil</th><th scope="col">SSL (HTTPS)</th><th scope="col">Destaques</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">Vercel (em uso)</th><td>R$ 0 (plano Hobby)</td><td>R$ 0; plano Pro: US$ 20 por usuário por mês</td><td>Não conferimos (CDN global)</td><td>Grátis</td><td>Publica sozinha a cada envio ao GitHub. Grátis só para uso não comercial.</td></tr>
+      <tr><th scope="row">Railway</th><td>US$ 0 (teste de US$ 5, até 30 dias)</td><td>US$ 1 de crédito grátis por mês; Hobby: US$ 5 por mês</td><td>Não (US East na aula)</td><td>Grátis</td><td>Usado nas aulas. Aceita banco de dados; o crédito grátis é pequeno.</td></tr>
+      <tr><th scope="row">Locaweb</th><td>R$ 7,90 por mês</td><td>R$ 7,90 por mês (sem reajuste promocional)</td><td>Sim</td><td>Grátis</td><td>Empresa nacional, preço previsível, suporte em português.</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h2>Domínios comparados</h2>
+  <div class="table-wrap">
+  <table>
+    <caption>Domínios: o que usamos e o que poderíamos contratar</caption>
+    <thead><tr><th scope="col">Domínio</th><th scope="col">Onde registrar</th><th scope="col">Preço por ano</th><th scope="col">Exigência</th><th scope="col">Observação</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">compartilha2sem2678.vercel.app (em uso)</th><td>Vercel (já incluído)</td><td class="num">R$ 0,00</td><td>Conta gratuita na Vercel</td><td>Já está no ar. É um subdomínio da Vercel, mais longo e sem identidade própria.</td></tr>
+      <tr><th scope="row">compartilha.com.br</th><td>Registro.br</td><td class="num">R$ 40,00</td><td>CPF ou CNPJ</td><td>Valor fixo desde 2017; identidade brasileira. Opção para o futuro.</td></tr>
+      <tr><th scope="row">compartilha.com</th><td>Registradores internacionais</td><td class="num">R$ 50 a R$ 100 (varia com o dólar)</td><td>Nenhuma</td><td>Fácil de lembrar; renovação costuma ser mais cara que o 1º ano.</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p class="source">A disponibilidade do nome “compartilha” em cada extensão ainda precisa ser conferida no Registro.br e nos registradores.</p>
+
+  <h2>Custo estimado em 12 meses</h2>
+  <div class="table-wrap">
+  <table>
+    <caption>Hospedagem + domínio: custo no 1º e no 2º ano</caption>
+    <thead><tr><th scope="col">Combinação</th><th scope="col">1º ano</th><th scope="col">2º ano</th></tr></thead>
+    <tbody>
+      <tr class="destaque"><th scope="row">Vercel + endereço .vercel.app (escolhida e já no ar)</th><td class="num">R$ 0,00</td><td class="num">R$ 0,00</td></tr>
+      <tr><th scope="row">Vercel + compartilha.com.br (se comprarmos o domínio)</th><td class="num">R$ 40,00</td><td class="num">R$ 40,00</td></tr>
+      <tr><th scope="row">Railway + endereço .up.railway.app</th><td class="num">US$ 0 (teste e plano grátis)</td><td class="num">US$ 0 a US$ 60 (plano Hobby: US$ 5 × 12)</td></tr>
+      <tr><th scope="row">Locaweb + compartilha.com.br</th><td class="num">R$ 134,80</td><td class="num">R$ 134,80</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p class="source">Cálculo da Locaweb: R$ 7,90 × 12 + R$ 40,00 do domínio. Os valores do Railway estão em dólar, como no site do provedor.</p>
+
+  <h2>Justificativa</h2>
+  <div class="card">
+    <p>Publicamos o ComPartilha na <strong>Vercel, com o endereço gratuito compartilha2sem2678.vercel.app</strong>, e o custo total até agora é <strong>R$ 0,00</strong>. Os motivos:</p>
+    <ol>
+      <li><strong>Custo zero:</strong> o plano Hobby é gratuito e não tem prazo, ao contrário do crédito de teste do Railway, que acaba.</li>
+      <li><strong>Publicação automática:</strong> a Vercel liga ao repositório do GitHub e republica o site a cada alteração enviada.</li>
+      <li><strong>HTTPS incluído:</strong> o certificado de segurança vem sem custo e sem configuração.</li>
+      <li><strong>Adequada ao nosso site:</strong> ele é estático (HTML, CSS e JavaScript), não precisa de banco de dados nem de servidor próprio.</li>
+    </ol>
+    <p><strong>Limites que aceitamos:</strong> o plano gratuito da Vercel é só para uso pessoal e não comercial, e o projeto é pausado se passar dos limites de uso (cerca de 100 GB de tráfego por mês). Isso serve para um trabalho acadêmico. Se o ComPartilha virasse um serviço real, o caminho seria um plano pago ou uma hospedagem nacional como a Locaweb (R$ 134,80 no primeiro ano, com o domínio .com.br), que tem preço previsível e suporte em português.</p>
+    <p><strong>Domínio próprio:</strong> não compramos domínio. Se quisermos um endereço mais curto, o compartilha.com.br custa R$ 40,00 por ano no Registro.br.</p>
+    <p><strong>Sustentabilidade:</strong> não confirmamos nesta pesquisa se Vercel, Railway ou Locaweb usam energia 100% renovável, e perguntar isso ao provedor seria o próximo passo. O maior ganho ambiental vem do próprio site, que é leve: sem frameworks, sem imagens pesadas e sem rastreadores.</p>
+    <p><strong>Outra alternativa gratuita:</strong> como o site é estático, ele também poderia ser publicado no GitHub Pages, a partir do repositório do projeto.</p>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <a href="index.html" class="brand footer-brand"><span class="dot-com">.Com</span>Partilha</a>
+      <p>O que sobra aqui pode fazer falta ali.</p>
+    </div>
+    <div>
+      <h2>Mapa do site</h2>
+      <ul class="footer-links">
+        <li><a href="doacao.html">Doar e receber</a></li>
+        <li><a href="aprenda.html">Aprenda</a></li>
+        <li><a href="projetos.html">Projetos</a></li>
+        <li><a href="impacto.html">Impacto</a></li>
+        <li><a href="acessibilidade.html">Acessibilidade</a></li>
+        <li><a href="galeria.html">Galeria</a></li>
+        <li><a href="midia.html">Mídia</a></li>
+        <li><a href="noticias.html">Notícias</a></li>
+        <li><a href="sobre.html">Sobre nós</a></li>
+        <li><a href="contato.html">Contato</a></li>
+        <li><a href="orcamento_hospedagem.html">Orçamento de hospedagem</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Projeto acadêmico</h2>
+      <p>Desenvolvido pela equipe ComPartilha. Os integrantes estão na página <a href="contato.html">Contato</a>.</p>
+      <p>Protótipo funcional, feito para ser leve e acessível a todos os públicos.</p>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
