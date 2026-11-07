@@ -91,41 +91,6 @@ e ligue no `<head>` dela, igual às outras páginas fazem.
 O cabeçalho e o rodapé se repetem em todas as páginas. Se precisar mudar o menu
 ou o rodapé, combine com o grupo e mude em todas de uma vez.
 
-## Como cada integrante faz o seu commit
-
-O professor acompanha quem fez o quê pelo histórico do GitHub, então cada um
-commita do próprio computador, com a própria conta.
-
-**Uma vez só:**
-
-1. Aceite o convite do repositório (chega por e-mail ou em
-   github.com/Eduardacsantos/ComPartilha/invitations).
-2. Clone o projeto: no VS Code, *Source Control → Clone Repository* e cole
-   `https://github.com/Eduardacsantos/ComPartilha.git`
-   (ou, no terminal, `git clone https://github.com/Eduardacsantos/ComPartilha.git`).
-3. Configure seu nome e o **mesmo e-mail da sua conta do GitHub**, senão o commit
-   não aparece no seu perfil:
-   ```
-   git config --global user.name "Seu Nome"
-   git config --global user.email "email-da-sua-conta@github"
-   ```
-
-**A cada vez que for trabalhar:**
-
-1. Puxe as novidades do grupo antes de começar: `git pull`
-   (no VS Code: *Source Control → … → Pull*).
-2. Edite só os arquivos da sua página.
-3. Confira abrindo a página no navegador.
-4. Faça o commit com uma mensagem que diga o que mudou, por exemplo
-   `Adiciona dicas de armazenamento na página Alimentação`:
-   ```
-   git add alimentacao.html
-   git commit -m "Adiciona dicas de armazenamento na página Alimentação"
-   git push
-   ```
-   Se o `git push` recusar porque alguém enviou antes, rode `git pull` e depois
-   `git push` de novo.
-
 ## Sustentabilidade e acessibilidade do próprio portal
 
 O ComPartilha tenta praticar o que prega — inclusive na forma como foi construído:
@@ -146,11 +111,5 @@ O ComPartilha tenta praticar o que prega — inclusive na forma como foi constru
 - **Respeita quem prefere menos movimento**: animações são desativadas
   automaticamente para usuários com `prefers-reduced-motion` ativado no sistema.
 
-## Como rodar no VS Code
+## Link do site
 
-1. Abra a pasta `ComPartilha` no VS Code.
-2. Instale a extensão **Live Server** (se ainda não tiver).
-3. Clique com o botão direito em `index.html` → **Open with Live Server**.
-
-Ou simplesmente abra o `index.html` direto no navegador — não precisa de servidor
-nem de instalação de dependências, já que não há build step nem backend.
