@@ -110,7 +110,7 @@ HTML5, CSS3 (variáveis, grid, flexbox) e JavaScript puro. Editor: VS Code com L
 | Definir tema, escopo e identidade visual | 21/09/2026 | Todos |
 | Páginas base, doação e temas do Aprenda | 28/09/2026 | Ver tabela de funções em `docs/README.md` |
 | Páginas exigidas (projetos, impacto, acessibilidade, galeria, mídia, notícias, contato, orçamento) | 15/10/2026 | Ver tabela de funções |
-| Validação W3C e testes de acessibilidade | [25/10/2026 | Todos |
+| Validação W3C e testes de acessibilidade | 25/10/2026 | Todos |
 | Documentação em `/docs` e compactação do `.zip` | 03/11/2026 | Ver tabela de funções |
 | Entrega no Blackboard | 09/11/2026 | Todos |
 
