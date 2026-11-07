@@ -73,20 +73,20 @@ e ligue no `<head>` dela, igual às outras páginas fazem.
 
 | Página | Arquivos | Responsável |
 |---|---|---|
-| Início | `index.html`, `css/inicio.css`, `js/inicio.js` | a definir |
-| Doar e receber | `doacao.html`, `css/doacao.css`, `js/doacao.js`, `js/itens.js` | a definir |
-| Aprenda | `aprenda.html`, `css/aprenda.css` | a definir |
-| Consumo | `consumo.html`, `css/consumo.css`, `js/consumo.js` | a definir |
-| Alimentação | `alimentacao.html` | a definir |
-| Casa | `casa.html`, `css/casa.css`, `js/casa.js` | a definir |
-| Reutilização | `reutilizacao.html` | a definir |
-| Compras | `compras.html` | a definir |
-| Economia | `economia.html` | a definir |
-| Hábitos | `habitos.html`, `css/habitos.css`, `js/habitos.js` | a definir |
-| Sobre nós | `sobre.html`, `css/sobre.css` | a definir |
-| Projetos, Impacto, Acessibilidade | `projetos.html`, `impacto.html`, `acessibilidade.html` | a definir |
-| Galeria, Mídia, Notícias | `galeria.html`, `midia.html`, `noticias.html`, `img/`, `assets/` | a definir |
-| Contato, Orçamento | `contato.html`, `js/contato.js`, `orcamento_hospedagem.html` | a definir |
+| Início | `index.html`, `css/inicio.css`, `js/inicio.js` | Henrique |
+| Doar e receber | `doacao.html`, `css/doacao.css`, `js/doacao.js`, `js/itens.js` | Henrique |
+| Aprenda | `aprenda.html`, `css/aprenda.css` | Julia |
+| Consumo | `consumo.html`, `css/consumo.css`, `js/consumo.js` | Julia |
+| Alimentação | `alimentacao.html` | Beatriz |
+| Casa | `casa.html`, `css/casa.css`, `js/casa.js` | Beatriz |
+| Reutilização | `reutilizacao.html` | Henrique |
+| Compras | `compras.html` | Leticia |
+| Economia | `economia.html` | Vitoria |
+| Hábitos | `habitos.html`, `css/habitos.css`, `js/habitos.js` | Vitoria |
+| Sobre nós | `sobre.html`, `css/sobre.css` | Leticia |
+| Projetos, Impacto, Acessibilidade | `projetos.html`, `impacto.html`, `acessibilidade.html` | Leticia |
+| Galeria, Mídia, Notícias | `galeria.html`, `midia.html`, `noticias.html`, `img/`, `assets/` | Eduarda |
+| Contato, Orçamento | `contato.html`, `js/contato.js`, `orcamento_hospedagem.html` | Eduarda |
 
 O cabeçalho e o rodapé se repetem em todas as páginas. Se precisar mudar o menu
 ou o rodapé, combine com o grupo e mude em todas de uma vez.
