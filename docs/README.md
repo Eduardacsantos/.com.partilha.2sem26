@@ -48,7 +48,7 @@ Páginas próprias do projeto: `doacao.html` (Doar e receber) e `aprenda.html` c
 | Henrique | `aprenda.html`, `consumo.html`, `alimentacao.html`, `casa.html` e seus CSS/JS |
 | Julia | `reutilizacao.html`, `compras.html`, `economia.html`, `habitos.html` e seus CSS/JS |
 | Vitória | `acessibilidade.html`, `galeria.html`, `midia.html`, pasta `img/` e `assets/` |
-| [6º integrante] | `contato.html`, `noticias.html`, `impacto.html`, `orcamento_hospedagem.html`, pasta `docs/` |
+| Leticia | `contato.html`, `noticias.html`, `impacto.html`, `orcamento_hospedagem.html`, pasta `docs/` |
 
 Em comum: `css/base.css`, `css/paginas.css` e `js/base.js` (combinar com o grupo antes de mudar).
 
