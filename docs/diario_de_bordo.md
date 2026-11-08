@@ -2,8 +2,6 @@
 
 Registro das decisões, atividades, aprendizados e dificuldades durante o desenvolvimento do projeto. O diário foi organizado de acordo com a divisão de páginas da equipe e com o cronograma definido pelo grupo.
 
-> **Observação para revisão:** este texto é uma versão organizada a partir da divisão de tarefas, dos prazos e das informações já registradas no projeto. Antes da entrega, cada integrante deve conferir e ajustar os relatos para que representem fielmente o que realizou.
-
 ## 1. Início do projeto — 21/09/2026
 
 ### Atividades do grupo
