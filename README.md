@@ -113,4 +113,4 @@ O ComPartilha tenta praticar o que prega — inclusive na forma como foi constru
 
 ## Link do site
 
-- **Link do site**: https://compartilha2sem2678.vercel.app/
+- **Link do site**: https://doealimentoscompartilha.vercel.app
