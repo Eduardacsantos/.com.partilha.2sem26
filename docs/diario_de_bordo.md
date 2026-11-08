@@ -62,7 +62,6 @@ Registro das decisões, atividades, aprendizados e dificuldades durante o desenv
 - Reunimos as páginas desenvolvidas individualmente e verificamos a navegação entre elas.
 - Revisamos os links do menu, o cabeçalho, o rodapé e a organização geral do conteúdo.
 - Começamos a verificar a apresentação do site em diferentes tamanhos de tela.
-- Realizamos uma revisão de acessibilidade e preparamos a etapa de validação com o W3C.
 - O prazo previsto para validação e testes de acessibilidade foi **25/10/2026**.
 
 ### Dificuldades e soluções
@@ -91,6 +90,7 @@ Registro das decisões, atividades, aprendizados e dificuldades durante o desenv
 - Fizemos uma revisão geral do que foi desenvolvido e comparamos as páginas com os requisitos da entrega.
 - Conferimos se as páginas previstas estavam presentes e se os arquivos estavam organizados.
 - Revisamos os conteúdos, os links e os elementos compartilhados.
+- Realizamos uma revisão de acessibilidade e preparamos a etapa de validação com o W3C.
 - Consultamos a documentação para verificar as orientações de uso e de substituição dos materiais provisórios.
 - Identificamos os pontos que ainda precisavam de conferência antes do envio final.
 
