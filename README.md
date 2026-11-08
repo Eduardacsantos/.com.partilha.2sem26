@@ -1,18 +1,24 @@
 # ComPartilha 🍽️
 
-> A documentação da entrega (objetivos, divisão de funções, escopo, diário de bordo, orçamento e evidências de testes) está na pasta [`docs/`](docs/README.md).
+> O que sobra aqui pode fazer falta ali.
 
-Protótipo funcional do projeto acadêmico ComPartilha: doação de alimentos (módulo
-"Sobra Zero") combinada com conteúdo prático de consumo consciente, em um portal
-leve, sustentável na própria construção e acessível a todos os públicos.
+Portal de **doação de alimentos** (módulo "Sobra Zero") combinado com **conteúdo prático de consumo consciente**, feito em HTML5, CSS3 e JavaScript puro. Projeto da Atividade A2 (Entrega 01), disciplina de Front-End, Curso Superior de Informática, UNICID. Professor: Paulo Fratta.
 
-## Tecnologias
+## Objetivos
 
-- HTML5 semântico
-- CSS3 com variáveis customizadas (suporte a tema claro/escuro)
-- JavaScript puro (vanilla), sem frameworks nem build step
-- Google Fonts: Petrona (títulos) e Hanken Grotesk (texto)
-- Uma página HTML por tela, sem backend: tudo roda no navegador
+**Geral:** reduzir o desperdício de alimentos aproximando quem tem excedente de quem precisa, e ensinar hábitos de consumo consciente, em um site leve e acessível a todos os públicos, inclusive pessoas com deficiência.
+
+**Específicos (mensuráveis):**
+
+1. Entregar 10 páginas HTML interligadas e navegáveis (index, sobre, projetos, impacto, acessibilidade, galeria, midia, noticias, contato, orcamento_hospedagem), mais o módulo de doação e 7 temas de consumo consciente.
+2. Ter um formulário de contato com validação HTML5 (required, email, tel, date, number, pattern, label for).
+3. Atingir contraste mínimo AA (4,5:1) nos textos dos temas claro e escuro.
+4. Permitir navegar por todo o site usando apenas o teclado.
+5. Passar no W3C Validator sem erros nas 19 páginas.
+
+## Tema
+
+**Sustentabilidade e impacto social**: combate ao desperdício de alimentos, doação, consumo consciente, economia solidária e acessibilidade digital.
 
 ## Estrutura
 
