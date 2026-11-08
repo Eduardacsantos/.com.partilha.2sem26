@@ -117,6 +117,15 @@ O ComPartilha tenta praticar o que prega — inclusive na forma como foi constru
 - **Respeita quem prefere menos movimento**: animações são desativadas
   automaticamente para usuários com `prefers-reduced-motion` ativado no sistema.
 
+## Uso de inteligência artificial
+
+A equipe usou inteligência artificial neste projeto, e registramos isso aqui de forma explícita:
+
+- **Ferramenta:** Claude, da Anthropic.
+- **Código:** pedimos ajuda ao Claude para criar o código do site (HTML, CSS e JavaScript).
+- **Documentos:** também pedimos ajuda ao Claude para separar e organizar todos os documentos exigidos na pasta docs, como o escopo do projeto, o diário de bordo, o orçamento de hospedagem e domínio, as evidências de testes e este README.
+- **Revisão e testes:** o Claude ainda ajudou a revisar o repositório e o codigo.
+
 ## Link do site
 
 - **Link do site**: https://doealimentoscompartilha.vercel.app
