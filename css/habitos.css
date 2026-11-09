@@ -1,9 +1,18 @@
 /* Página Hábitos (habitos.html) */
+
+/* Estiliza cada linha de hábito com layout flexbox, espaçamento e borda tracejada */
 .habit-item{display:flex;gap:10px;align-items:center;padding:9px 8px;border-bottom:1px dashed var(--border);border-radius:8px;transition:background-color .15s}
+/* Remove a borda inferior do último item da lista para manter o design limpo */
 .habit-item:last-child{border-bottom:none}
+/* Efeito visual ao passar o mouse por cima de um hábito */
 .habit-item:hover{background:var(--surface-2)}
+/* Estiliza o botão "Priorizar" dentro de cada linha de hábito */
 .habit-item button{margin-left:auto;border:1px solid var(--green-text);background:transparent;color:var(--green-text);padding:5px 12px;border-radius:8px;cursor:pointer;font-size:.8rem;font-family:inherit;transition:background-color .15s,color .15s}
+/* Efeito visual ao passar o mouse ou focar no botão "Priorizar" */
 .habit-item button:hover{background:var(--green-text);color:var(--surface)}
+/* Estilo aplicado quando o usuário escolhe/prioriza um hábito (destaque visual) */
 .habit-item.selected{background:var(--green-light)}
+/* Caixa de mensagem motivacional (fica oculta por padrão) */
 .encourage{display:none;margin-top:14px;background:var(--green-light);color:var(--on-green-light);padding:12px;border-radius:10px}
+/* Classe ativada via JavaScript para exibir a mensagem motivacional na tela */
 .encourage.show{display:block}
