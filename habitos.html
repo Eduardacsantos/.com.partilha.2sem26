@@ -1,19 +1,27 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+  <!-- Define a codificação de caracteres como UTF-8 para aceitar acentos e emojis -->
 <meta charset="UTF-8">
+  <!-- Garante responsividade ajustando a escala do site para celulares e tablets -->
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <!-- Descrição da página para motores de busca e compartilhamento -->
 <meta name="description" content="10 hábitos de consumo consciente para começar hoje.">
+  <!-- Informa ao navegador que o site suporta alternância entre temas claro e escuro -->
 <meta name="color-scheme" content="light dark">
 <title>Hábitos | .ComPartilha</title>
+  <!-- Ícone da aba do navegador -->
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <!-- Pré-conexão com o Google Fonts para carregar as fontes mais rápido -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Petrona:wght@600;700&family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+  <!-- Folhas de estilo globais e específicas da página -->
 <link rel="stylesheet" href="css/base.css">
 <link rel="stylesheet" href="css/habitos.css">
 <!-- base.js sem defer: aplica o tema antes de pintar a página -->
 <script src="js/base.js"></script>
+  <!-- script específico da página de hábitos, carregado com defer -->
 <script src="js/habitos.js" defer></script>
 </head>
 <body>
@@ -23,12 +31,15 @@
   <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></symbol>
   <symbol id="i-arrow-left" viewBox="0 0 24 24"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></symbol>
 </svg>
-
+  
+<!-- Link de acessibilidade: permite que leitores de tela pulem direto para o conteúdo principal -->
 <a href="#mainContent" class="skip-link">Pular para o conteúdo</a>
 
 <header>
   <div class="topbar">
+    <!-- Logotipo da marca com destaque de cor -->
     <a href="index.html" class="brand" aria-label="ComPartilha, página inicial"><span class="dot-com">.Com</span>Partilha</a>
+    <!-- Menu principal de navegação do site -->
     <nav id="nav" aria-label="Navegação principal">
     <a href="index.html">Início</a>
     <a href="doacao.html">Doar e receber</a>
@@ -43,6 +54,7 @@
     <a href="contato.html">Contato</a>
     <a href="orcamento_hospedagem.html">Orçamento</a>
     </nav>
+    <!-- Controles de acessibilidade (fonte e tema) -->
     <div class="controls" role="group" aria-label="Preferências de exibição">
       <div class="fontsize-controls" role="group" aria-label="Tamanho do texto">
         <button type="button" id="fontDown" aria-label="Diminuir tamanho do texto">A-</button>
@@ -53,7 +65,8 @@
     </div>
   </div>
 </header>
-
+  
+<!-- Conteúdo Principal da Página -->
 <main id="mainContent" tabindex="-1">
 
 <section>
@@ -61,9 +74,12 @@
     <span class="tag">Hábitos</span>
     <h1>10 hábitos de consumo consciente</h1>
   </div>
+  <!-- Contêiner onde o JavaScript injeta dinamicamente a lista de hábitos -->
   <div class="card" id="habitList"></div>
+  <!-- Caixa de feedback motivacional que aparece após o usuário priorizar um hábito -->
   <div class="encourage" id="habitEncourage" role="status" aria-live="polite"></div>
-
+  
+<!-- Botão de retorno à página anterior de aprendizado -->
   <nav class="topic-nav" aria-label="Temas do Aprenda">
     <a href="aprenda.html"><svg class="icon" aria-hidden="true"><use href="#i-arrow-left"/></svg>Todos os temas</a>
   </nav>
