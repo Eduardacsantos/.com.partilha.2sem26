@@ -126,6 +126,7 @@ A equipe usou inteligência artificial neste projeto, e registramos isso aqui de
 - **Documentos:** também pedimos ajuda ao Claude para separar e organizar todos os documentos exigidos na pasta docs, como o escopo do projeto, o diário de bordo, o orçamento de hospedagem e domínio, as evidências de testes e este README.
 - **Revisão e testes:** o Claude ainda ajudou a revisar o repositório e o codigo.
 
-## Link do site
+## Links importantes
 
 - **Link do site**: https://doealimentoscompartilha.vercel.app
+- **Link de gravação da tela**: https://youtu.be/CA7SbHaHkZc
