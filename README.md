@@ -129,4 +129,4 @@ A equipe usou inteligência artificial neste projeto, e registramos isso aqui de
 ## Links importantes
 
 - **Link do site**: https://doealimentoscompartilha.vercel.app
-- **Link de gravação da tela**: https://youtu.be/CA7SbHaHkZc
+- **Link de gravação da tela no desktop**: https://youtu.be/CA7SbHaHkZc
